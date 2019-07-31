@@ -1,7 +1,7 @@
 import {RECEIVE_CURRENT_USER} from '../actions/session'
 import merge from 'lodash/merge'
 
-export default (state = {}, action) => {
+const usersReducer = (state = {}, action) => {
     Object.freeze(state)
     switch(action.type) {
         case RECEIVE_CURRENT_USER:
@@ -10,3 +10,5 @@ export default (state = {}, action) => {
             return state
     }
 }
+
+export default usersReducer
