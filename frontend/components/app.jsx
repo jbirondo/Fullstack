@@ -4,13 +4,18 @@ import LoginContainer from './session/login_container';
 // import Home from './home/home';
 import Modal from './modal/modal'
 import NavBarContainer from './nav_bar/nav_bar_container'
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../utils/route_utils';
 
 export default () => (
     <div>
         <Modal />
-        <Route path="/" component={NavBarContainer} />
+        <header>
+            <Link to="/" className="header-link">
+            <h1>Open Table</h1>
+            </Link>
+            <NavBarContainer />
+        </header>
         {/* <AuthRoute path="/signup" component={SignupContainer} />
         <AuthRoute path="/login" component={LoginContainer} /> */}
         {/* switch */}

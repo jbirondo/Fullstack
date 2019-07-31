@@ -16,7 +16,7 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user).then(this.props.closeModal);
         // debugger
     }
     handleInput(type) {
@@ -35,14 +35,15 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        let path = "/login"
+        let path = "login"
         let title = "Sign Up";
         let altTitle = "LOGIN"
         if (this.props.formType === "login") {
             title = "Login";
-            path = "/signup";
+            path = "signup";
             altTitle = "SIGNUP"
         };
+        // debugger
         return (
             <div>
                 {this.errors()}
@@ -54,7 +55,7 @@ class SessionForm extends React.Component {
                     <input type="password" onChange={this.handleInput('password')} value={this.state.password} />
                 </label>
                 <button onClick={this.handleSubmit}>Submit</button>
-                <Link to={path}>{altTitle}</Link>
+                <button onClick={() => this.props.openModal(path)}>{altTitle}</button>
             </div>
         )
     }
