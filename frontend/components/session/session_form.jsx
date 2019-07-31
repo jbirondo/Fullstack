@@ -26,7 +26,7 @@ class SessionForm extends React.Component {
     }
 
     errors() {
-        debugger
+        // debugger
         if (this.props.errors) {
             return (<ul>
                 {this.props.errors.map((error, i) => (<li key={i}>{error}</li>))}
@@ -36,10 +36,10 @@ class SessionForm extends React.Component {
 
     render() {
         let path = "/login"
-        let title = "signup";
+        let title = "Sign Up";
         let altTitle = "LOGIN"
         if (this.props.formType === "login") {
-            title = "login";
+            title = "Login";
             path = "/signup";
             altTitle = "SIGNUP"
         };
@@ -51,7 +51,7 @@ class SessionForm extends React.Component {
                     <input type="text" onChange={this.handleInput('email')} value={this.state.email} />
                 </label>
                 <label>Password
-                    <input type="text" onChange={this.handleInput('password')} value={this.state.password} />
+                    <input type="password" onChange={this.handleInput('password')} value={this.state.password} />
                 </label>
                 <button onClick={this.handleSubmit}>Submit</button>
                 <Link to={path}>{altTitle}</Link>

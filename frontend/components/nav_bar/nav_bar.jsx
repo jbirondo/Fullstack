@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-export default ({ currentUser, logout }) => {
+export default ({ currentUser, logout, openModal }) => {
     const display = currentUser ? (
         <div>
             <h3>Welcome {currentUser.email}!</h3>
@@ -10,8 +9,9 @@ export default ({ currentUser, logout }) => {
         </div>
     ) : (
             <div>
-                <Link className="signin-btn" to="/signup">Sign Up</Link>
-                <Link className="login-btn" to="/login">Sign In</Link>
+                <button onClick={() => openModal('login')}>Login</button>
+                &nbsp;or&nbsp;
+                <button onClick={() => openModal('signup')}>Signup</button>
             </div>
         );
     return (
