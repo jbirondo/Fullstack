@@ -4,8 +4,7 @@ import {
     RECEIVE_CURRENT_USER
 } from '../actions/session';
 
-const sessionErrorsReducer = (oldState = {}, action) => {
-    let newState;
+const sessionErrorsReducer = (oldState = [], action) => {
     Object.freeze(oldState);
     switch (action.type) {
         case RECEIVE_SESSION_ERRORS:

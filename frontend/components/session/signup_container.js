@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import SessionForm from './session_form';
 
 
-const mapStateToProps = (state, ownProps) => (
-
-    { errors: state.errors.session, formType: "signup" }
-)
+const mapStateToProps = (state, ownProps) => {
+    debugger
+    return { errors: state.errors.session, formType: "signup" }
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => (
     {

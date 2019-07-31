@@ -18,16 +18,16 @@ export const receiveErrors = errors => ({
     errors
 });
 
-export const signup = formUser => dispatch => 
+export const signup = formUser => dispatch => (
     postUser(formUser)
-        .then((user => dispatch(receiveCurrentUser(user))), 
-        error => dispatch(receiveErrors(error.responseJSON)))
+        .then(user => dispatch(receiveCurrentUser(user)), 
+        error => dispatch(receiveErrors(error.responseJSON))))
 
 
-export const login = formUser => dispatch => 
+export const login = formUser => dispatch => (
     postSession(formUser)
-        .then((user => dispatch(receiveCurrentUser(user))),
-        error => dispatch(receiveErrors(error.responseJSON)))
+        .then(user => dispatch(receiveCurrentUser(user)),
+        error => dispatch(receiveErrors(error.responseJSON))))
 
 export const logout = () => dispatch => deleteSession()
     .then(() => dispatch(logoutCurrentUser()));
