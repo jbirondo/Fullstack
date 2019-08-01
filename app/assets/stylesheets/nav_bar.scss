@@ -1,0 +1,38 @@
+.nav_bar {
+    display: flex;
+    padding: 0px 36px;
+}
+
+.nav-sign-up-button {
+    color: white;
+    background-color: #237B98;
+    font-size: 14px;
+
+}
+.nav-sign-in-button {
+    background-color: transparent;
+    font-size: 16px;
+    border: none;
+}
+
+.nav-sign-up-button , .nav-sign-in-button {
+    float: right;
+    width: 100px;
+    height: 40px;
+    font: BrandonText;
+    border-radius: 8px;
+    line-height: 2rem;
+}
+
+.header-link {
+    text-decoration: none;
+    float: left;
+    background-image: url(https://media.otstatic.com/img/logo-fb47603a815bb1cf3e89400ba14587f1.png);
+    color: rgba(0,0,0,0);
+    display: block;
+    width: 9.75rem;
+    height: 2.31rem;
+}
+
+a.header-link {
+}

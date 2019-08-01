@@ -11,9 +11,6 @@ export default () => (
     <div>
         <Modal />
         <header>
-            <Link to="/" className="header-link">
-            <h1>Open Table</h1>
-            </Link>
             <NavBarContainer />
         </header>
         {/* <AuthRoute path="/signup" component={SignupContainer} />

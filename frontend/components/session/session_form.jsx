@@ -37,25 +37,32 @@ class SessionForm extends React.Component {
     render() {
         let path = "login"
         let title = "Sign Up";
-        let altTitle = "LOGIN"
+        let altTitle = "Sign Up"
+        let button = "Create an account"
         if (this.props.formType === "login") {
-            title = "Login";
+            title = "Please sign in";
             path = "signup";
-            altTitle = "SIGNUP"
+            altTitle = "Have an account? Log in here"
+            button = "Sign In"
         };
         // debugger
         return (
             <div>
                 {this.errors()}
                 <h2>{title}</h2>
-                <label>Email
-                    <input type="text" onChange={this.handleInput('email')} value={this.state.email} />
+                <label>Enter email *
+                    <br/>
+                    <input className="sign-in-input" type="text" onChange={this.handleInput('email')} value={this.state.email} />
                 </label>
-                <label>Password
-                    <input type="password" onChange={this.handleInput('password')} value={this.state.password} />
+                <br/>
+                <label>Enter password *
+                    <br/>
+                    <input className="sign-in-input" type="password" onChange={this.handleInput('password')} value={this.state.password} />
                 </label>
-                <button onClick={this.handleSubmit}>Submit</button>
-                <button onClick={() => this.props.openModal(path)}>{altTitle}</button>
+                <br/>
+                <button className="sign-in-button" onClick={this.handleSubmit}>{button}</button>
+                {/* <p>--- or --- </p> */}
+                <button className="alt-sign-in-button" onClick={() => this.props.openModal(path)}>{altTitle}</button>
             </div>
         )
     }
