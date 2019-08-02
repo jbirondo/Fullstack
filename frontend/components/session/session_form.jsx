@@ -29,39 +29,39 @@ class SessionForm extends React.Component {
         // debugger
         if (this.props.errors) {
             return (<ul>
-                {this.props.errors.map((error, i) => (<li key={i}>{error}</li>))}
+                {this.props.errors.map((error, i) => (<li className="session-form-error-list-item" key={i}>{error}</li>))}
             </ul>)
         }
     }
 
     render() {
         let path = "login"
-        let title = "Sign Up";
-        let altTitle = "Sign Up"
-        let button = "Create an account"
+        let title = "Welcome to OpenTable!";
+        let altTitle = "Have an account? Log in here"
+        let button = "Create Account"
         if (this.props.formType === "login") {
             title = "Please sign in";
             path = "signup";
-            altTitle = "Have an account? Log in here"
+            altTitle = "No account? Please sign up"
             button = "Sign In"
         };
         // debugger
         return (
-            <div>
+            <div className="session-form">
                 {this.errors()}
-                <h2>{title}</h2>
-                <label>Enter email *
+                <h2 className="session-form-title">{title}</h2>
+                <hr></hr>
+                <label className="session-form-email-label">Enter email *
                     <br/>
                     <input className="sign-in-input" type="text" onChange={this.handleInput('email')} value={this.state.email} />
                 </label>
                 <br/>
-                <label>Enter password *
+                <label className="session-form-password-label">Enter password *
                     <br/>
                     <input className="sign-in-input" type="password" onChange={this.handleInput('password')} value={this.state.password} />
                 </label>
                 <br/>
                 <button className="sign-in-button" onClick={this.handleSubmit}>{button}</button>
-                {/* <p>--- or --- </p> */}
                 <button className="alt-sign-in-button" onClick={() => this.props.openModal(path)}>{altTitle}</button>
             </div>
         )
