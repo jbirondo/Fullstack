@@ -9,7 +9,8 @@ export default ({ currentUser, logout, openModal }) => {
                     <h2>Open Table </h2>
             </Link>
             <button className="logout-btn" onClick={logout}>Logout</button>
-            <userDropdown />
+            {/* <userDropdown /> */}
+
             <h3 className="nav-bar-welcome-message">Hi, {currentUser.email}</h3>
             {/* needs a link to reservations */}
         </div>
