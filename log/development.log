@@ -4412,3 +4412,657 @@ Processing by Api::SessionsController#create as JSON
 Completed 200 OK in 288ms (Views: 10.9ms | ActiveRecord: 21.5ms)
 
 
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5627234109518057715)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateRestaurants (20190806163205)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (137.0ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" bigserial primary key, "name" character varying NOT NULL, "address" character varying NOT NULL, "capacity" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190806163205_create_restaurants.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (3.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190806163205"]]
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5627234109518057715)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2019-08-06 09:45:12 -0700
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jbirondo/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6ToUcKiGy0T_nNdSdL9fXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (118.5ms)
+Completed 200 OK in 2750ms (Views: 2718.5ms | ActiveRecord: 30.4ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-08-06 09:45:22 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6ToUcKiGy0T_nNdSdL9fXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:28
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28
+  [1m[36mUser Update (1.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "yYI5dO0xMzYB5_X5tzcHjA"], ["updated_at", "2019-08-06 16:45:22.540335"], ["id", 7]]
+  ↳ app/models/user.rb:28
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:28
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (2.7ms)
+Completed 200 OK in 37ms (Views: 18.5ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/api/session" for ::1 at 2019-08-06 09:45:33 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:28
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28
+  [1m[36mUser Update (5.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "JQTDGB1D1c4JJ1nZg1sP1Q"], ["updated_at", "2019-08-06 16:45:33.555523"], ["id", 7]]
+  ↳ app/models/user.rb:28
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:28
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered api/users/show.json.jbuilder (2.7ms)
+Completed 200 OK in 262ms (Views: 10.3ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/" for ::1 at 2019-08-06 13:29:33 -0700
+  
+SyntaxError (/Users/jbirondo/Desktop/fullstack_opentable/config/routes.rb:7: syntax error, unexpected keyword_end
+  end
+  ^~~):
+  
+config/routes.rb:7: syntax error, unexpected keyword_end
+Started GET "/" for ::1 at 2019-08-06 13:30:07 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "JQTDGB1D1c4JJ1nZg1sP1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered api/users/_user.json.jbuilder (2.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (139.0ms)
+Completed 200 OK in 257ms (Views: 216.6ms | ActiveRecord: 37.5ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-08-06 13:30:11 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "JQTDGB1D1c4JJ1nZg1sP1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (6.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:28
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28
+  [1m[36mUser Update (19.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "iV1xt-9HpYGs1yag0swD1w"], ["updated_at", "2019-08-06 20:30:11.377431"], ["id", 7]]
+  ↳ app/models/user.rb:28
+  [1m[35m (10.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:28
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (2.3ms)
+Completed 200 OK in 75ms (Views: 10.6ms | ActiveRecord: 38.1ms)
+
+
+Started GET "/" for ::1 at 2019-08-06 13:30:28 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 86ms (Views: 86.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/users/1" for ::1 at 2019-08-06 13:30:34 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/api/users/1"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/users/1" for ::1 at 2019-08-06 13:32:52 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:3
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/users/show.json.jbuilder (3.6ms)
+Completed 200 OK in 59ms (Views: 12.5ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/api/users/2" for ::1 at 2019-08-06 13:32:59 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:3
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (1.8ms)
+Completed 200 OK in 13ms (Views: 8.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users/3" for ::1 at 2019-08-06 13:33:03 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:3
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (2.2ms)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/users/4" for ::1 at 2019-08-06 13:33:07 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:3
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.3ms)
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users/5" for ::1 at 2019-08-06 13:33:10 -0700
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:3
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (1.2ms)
+Completed 200 OK in 13ms (Views: 8.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/restaurants" for ::1 at 2019-08-06 13:50:55 -0700
+  [1m[35m (7.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jbirondo/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::RestaurantsController#index as JSON
+  Rendering api/restaurants/index.json.jbuilder
+  [1m[36mRestaurant Load (15.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/api/restaurants/index.json.jbuilder:1
+  Rendered api/restaurants/index.json.jbuilder (20.1ms)
+Completed 200 OK in 33ms (Views: 12.0ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/api/restaurants/1" for ::1 at 2019-08-06 13:51:07 -0700
+Processing by Api::RestaurantsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (1.2ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/restaurants_controller.rb:8
+Completed 404 Not Found in 60ms (ActiveRecord: 15.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Restaurant with 'id'=1):
+  
+app/controllers/api/restaurants_controller.rb:8:in `show'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mRestaurant Destroy (1.3ms)[0m  [1m[31mDELETE FROM "restaurants"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mRestaurant Destroy (0.5ms)[0m  [1m[31mDELETE FROM "restaurants"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mRestaurant Destroy (0.5ms)[0m  [1m[31mDELETE FROM "restaurants"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (8.8ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Red Bar & Grill"], ["address", "29321 Willa Center"], ["capacity", 1], ["created_at", "2019-08-06 20:56:11.497303"], ["updated_at", "2019-08-06 20:56:11.497303"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Blue Plate Cafe"], ["address", "4463 Schulist View"], ["capacity", 5], ["created_at", "2019-08-06 20:56:11.508747"], ["updated_at", "2019-08-06 20:56:11.508747"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "8957 Curry"], ["address", "91136 Rosenbaum Cove"], ["capacity", 9], ["created_at", "2019-08-06 20:56:11.511103"], ["updated_at", "2019-08-06 20:56:11.511103"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "LD Juice Bar"], ["address", "880 Marci Vista"], ["capacity", 6], ["created_at", "2019-08-06 20:56:11.513090"], ["updated_at", "2019-08-06 20:56:11.513090"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.4ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Hungry Sushi"], ["address", "7945 Kimberlie Estate"], ["capacity", 9], ["created_at", "2019-08-06 20:56:11.515393"], ["updated_at", "2019-08-06 20:56:11.515393"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "VX Cafe"], ["address", "821 Rosario Trafficway"], ["capacity", 7], ["created_at", "2019-08-06 20:56:11.517986"], ["updated_at", "2019-08-06 20:56:11.517986"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Fast Curry"], ["address", "945 Moen Canyon"], ["capacity", 3], ["created_at", "2019-08-06 20:56:11.520370"], ["updated_at", "2019-08-06 20:56:11.520370"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Sugar Diner"], ["address", "71415 Hayden Ports"], ["capacity", 9], ["created_at", "2019-08-06 20:56:11.522159"], ["updated_at", "2019-08-06 20:56:11.522159"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Smokestack Deli"], ["address", "68871 Spinka Pines"], ["capacity", 0], ["created_at", "2019-08-06 20:56:11.524162"], ["updated_at", "2019-08-06 20:56:11.524162"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Spice Burger"], ["address", "236 Abbott Village"], ["capacity", 3], ["created_at", "2019-08-06 20:56:11.526324"], ["updated_at", "2019-08-06 20:56:11.526324"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Spice Curry"], ["address", "182 Mohamed Rapids"], ["capacity", 4], ["created_at", "2019-08-06 20:56:11.528266"], ["updated_at", "2019-08-06 20:56:11.528266"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Thirsty Bar & Grill"], ["address", "5118 Torphy Drive"], ["capacity", 5], ["created_at", "2019-08-06 20:56:11.530292"], ["updated_at", "2019-08-06 20:56:11.530292"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Salty Bar & Grill"], ["address", "1540 Dibbert Mission"], ["capacity", 1], ["created_at", "2019-08-06 20:56:11.532339"], ["updated_at", "2019-08-06 20:56:11.532339"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Big Pub"], ["address", "7813 Murphy Land"], ["capacity", 1], ["created_at", "2019-08-06 20:56:11.534118"], ["updated_at", "2019-08-06 20:56:11.534118"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Green Curry"], ["address", "509 Thurman Rest"], ["capacity", 6], ["created_at", "2019-08-06 20:56:11.536376"], ["updated_at", "2019-08-06 20:56:11.536376"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Thirsty Coffee"], ["address", "4676 Evette Circle"], ["capacity", 3], ["created_at", "2019-08-06 20:56:11.538693"], ["updated_at", "2019-08-06 20:56:11.538693"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Silver Dragon"], ["address", "1765 Filiberto Course"], ["capacity", 5], ["created_at", "2019-08-06 20:56:11.540943"], ["updated_at", "2019-08-06 20:56:11.540943"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "74 Dragon"], ["address", "8783 Londa Throughway"], ["capacity", 3], ["created_at", "2019-08-06 20:56:11.542988"], ["updated_at", "2019-08-06 20:56:11.542988"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Hungry Pizza"], ["address", "17422 Rusty Junctions"], ["capacity", 0], ["created_at", "2019-08-06 20:56:11.544972"], ["updated_at", "2019-08-06 20:56:11.544972"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Belly Curry"], ["address", "4702 Jeramy Squares"], ["capacity", 4], ["created_at", "2019-08-06 20:56:11.546912"], ["updated_at", "2019-08-06 20:56:11.546912"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Fast Juice Bar"], ["address", "549 Wuckert Center"], ["capacity", 4], ["created_at", "2019-08-06 20:56:11.549020"], ["updated_at", "2019-08-06 20:56:11.549020"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Salty Juice Bar"], ["address", "79333 Kutch Pass"], ["capacity", 2], ["created_at", "2019-08-06 20:56:11.550957"], ["updated_at", "2019-08-06 20:56:11.550957"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Sweet Bar & Grill"], ["address", "426 Effertz Manor"], ["capacity", 4], ["created_at", "2019-08-06 20:56:11.553388"], ["updated_at", "2019-08-06 20:56:11.553388"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.4ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Spice Juice Bar"], ["address", "593 Vito Wells"], ["capacity", 1], ["created_at", "2019-08-06 20:56:11.555654"], ["updated_at", "2019-08-06 20:56:11.555654"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "637 Burger"], ["address", "1817 Janette Coves"], ["capacity", 3], ["created_at", "2019-08-06 20:56:11.558244"], ["updated_at", "2019-08-06 20:56:11.558244"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Spice Deli"], ["address", "296 Delmar Hills"], ["capacity", 5], ["created_at", "2019-08-06 20:56:11.560477"], ["updated_at", "2019-08-06 20:56:11.560477"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Spice Bar & Grill"], ["address", "7292 Hamill Green"], ["capacity", 2], ["created_at", "2019-08-06 20:56:11.562385"], ["updated_at", "2019-08-06 20:56:11.562385"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Green Bar & Grill"], ["address", "2912 Schmidt Tunnel"], ["capacity", 3], ["created_at", "2019-08-06 20:56:11.564308"], ["updated_at", "2019-08-06 20:56:11.564308"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "SKW Burger"], ["address", "315 Danielle Drive"], ["capacity", 6], ["created_at", "2019-08-06 20:56:11.566053"], ["updated_at", "2019-08-06 20:56:11.566053"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Blue Grill & Tap"], ["address", "266 Loan Summit"], ["capacity", 3], ["created_at", "2019-08-06 20:56:11.568225"], ["updated_at", "2019-08-06 20:56:11.568225"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Big Gastropub"], ["address", "502 Renea Inlet"], ["capacity", 8], ["created_at", "2019-08-06 20:56:11.570427"], ["updated_at", "2019-08-06 20:56:11.570427"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Belly House"], ["address", "376 Donn Island"], ["capacity", 9], ["created_at", "2019-08-06 20:56:11.572404"], ["updated_at", "2019-08-06 20:56:11.572404"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (1.0ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Orange Bar & Grill"], ["address", "9105 Cristobal Forge"], ["capacity", 1], ["created_at", "2019-08-06 20:56:11.574467"], ["updated_at", "2019-08-06 20:56:11.574467"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Fast Spoon"], ["address", "201 Volkman Overpass"], ["capacity", 6], ["created_at", "2019-08-06 20:56:11.577803"], ["updated_at", "2019-08-06 20:56:11.577803"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Hungry Eats"], ["address", "92980 Blair Flats"], ["capacity", 2], ["created_at", "2019-08-06 20:56:11.579625"], ["updated_at", "2019-08-06 20:56:11.579625"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Orange Deli"], ["address", "39197 Mosciski Vista"], ["capacity", 0], ["created_at", "2019-08-06 20:56:11.581335"], ["updated_at", "2019-08-06 20:56:11.581335"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Fat House"], ["address", "7799 Racheal Lake"], ["capacity", 6], ["created_at", "2019-08-06 20:56:11.583112"], ["updated_at", "2019-08-06 20:56:11.583112"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Spice Gastropub"], ["address", "100 Harvey Oval"], ["capacity", 7], ["created_at", "2019-08-06 20:56:11.585391"], ["updated_at", "2019-08-06 20:56:11.585391"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Green Bar & Grill"], ["address", "59945 Catina Coves"], ["capacity", 6], ["created_at", "2019-08-06 20:56:11.587403"], ["updated_at", "2019-08-06 20:56:11.587403"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Sugar Curry"], ["address", "14285 Marlon Meadows"], ["capacity", 0], ["created_at", "2019-08-06 20:56:11.589445"], ["updated_at", "2019-08-06 20:56:11.589445"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Salty House"], ["address", "552 Jules Glens"], ["capacity", 0], ["created_at", "2019-08-06 20:56:11.591511"], ["updated_at", "2019-08-06 20:56:11.591511"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "53 Gastropub"], ["address", "5036 Boyer Mountains"], ["capacity", 2], ["created_at", "2019-08-06 20:56:11.593498"], ["updated_at", "2019-08-06 20:56:11.593498"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "78 Grill"], ["address", "43562 Stracke Route"], ["capacity", 2], ["created_at", "2019-08-06 20:56:11.595536"], ["updated_at", "2019-08-06 20:56:11.595536"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Sugar Subs"], ["address", "361 Moen Island"], ["capacity", 3], ["created_at", "2019-08-06 20:56:11.598090"], ["updated_at", "2019-08-06 20:56:11.598090"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "577 Curry"], ["address", "365 Lynne Radial"], ["capacity", 0], ["created_at", "2019-08-06 20:56:11.600451"], ["updated_at", "2019-08-06 20:56:11.600451"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "36 Coffee"], ["address", "108 Lezlie Wall"], ["capacity", 0], ["created_at", "2019-08-06 20:56:11.602898"], ["updated_at", "2019-08-06 20:56:11.602898"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Hungry King"], ["address", "345 Rempel Mount"], ["capacity", 5], ["created_at", "2019-08-06 20:56:11.605229"], ["updated_at", "2019-08-06 20:56:11.605229"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Silver Sushi"], ["address", "961 Stamm Path"], ["capacity", 6], ["created_at", "2019-08-06 20:56:11.607235"], ["updated_at", "2019-08-06 20:56:11.607235"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Orange Gastropub"], ["address", "37943 Lindgren Estates"], ["capacity", 0], ["created_at", "2019-08-06 20:56:11.609173"], ["updated_at", "2019-08-06 20:56:11.609173"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Smokestack Deli"], ["address", "52562 Angelena Isle"], ["capacity", 0], ["created_at", "2019-08-06 20:56:11.611087"], ["updated_at", "2019-08-06 20:56:11.611087"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+Started GET "/api/restaurants/1" for ::1 at 2019-08-06 13:56:22 -0700
+Processing by Api::RestaurantsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (0.9ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/restaurants_controller.rb:8
+  Rendering api/restaurants/show.json.jbuilder
+  Rendered api/restaurants/show.json.jbuilder (274.4ms)
+Completed 500 Internal Server Error in 359ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `restaurant' for #<#<Class:0x00007f8f8886db88>:0x00007f8f855d1580>
+Did you mean?  @restaurant):
+    1: json.partial! 'api/restaurants/restaurant', restaurant: restaurant
+  
+app/views/api/restaurants/show.json.jbuilder:1:in `_app_views_api_restaurants_show_json_jbuilder___90860265309576995_70127224659700'
+app/controllers/api/restaurants_controller.rb:9:in `show'
+Started GET "/api/restaurants/1" for ::1 at 2019-08-06 13:57:01 -0700
+Processing by Api::RestaurantsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (1.5ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/restaurants_controller.rb:8
+  Rendering api/restaurants/show.json.jbuilder
+  Rendered api/restaurants/_restaurant.json.jbuilder (1.1ms)
+  Rendered api/restaurants/show.json.jbuilder (5.7ms)
+Completed 200 OK in 42ms (Views: 26.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/restaurants" for ::1 at 2019-08-06 13:57:08 -0700
+Processing by Api::RestaurantsController#index as JSON
+  Rendering api/restaurants/index.json.jbuilder
+  [1m[36mRestaurant Load (0.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/api/restaurants/index.json.jbuilder:1
+  Rendered api/restaurants/_restaurant.json.jbuilder (6.1ms)
+  Rendered api/restaurants/index.json.jbuilder (11.9ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: json.extract! restaurant, :name, :address, :capacity
+  
+app/views/api/restaurants/_restaurant.json.jbuilder:1:in `_app_views_api_restaurants__restaurant_json_jbuilder___3855536939239141706_70127190820280'
+app/views/api/restaurants/index.json.jbuilder:3:in `block (2 levels) in _app_views_api_restaurants_index_json_jbuilder___2700137170021044013_70127195984780'
+app/views/api/restaurants/index.json.jbuilder:2:in `block in _app_views_api_restaurants_index_json_jbuilder___2700137170021044013_70127195984780'
+app/views/api/restaurants/index.json.jbuilder:1:in `_app_views_api_restaurants_index_json_jbuilder___2700137170021044013_70127195984780'
+app/controllers/api/restaurants_controller.rb:4:in `index'
+Started GET "/api/restaurants" for ::1 at 2019-08-06 14:01:51 -0700
+Processing by Api::RestaurantsController#index as JSON
+  Rendering api/restaurants/index.json.jbuilder
+  [1m[36mRestaurant Load (1.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/api/restaurants/index.json.jbuilder:1
+  Rendered api/restaurants/_restaurant.json.jbuilder (1.8ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.3ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.2ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.2ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.6ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.5ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.1ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.0ms)
+  Rendered api/restaurants/index.json.jbuilder (70.7ms)
+Completed 200 OK in 88ms (Views: 81.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/restaurants/3" for ::1 at 2019-08-06 14:02:39 -0700
+Processing by Api::RestaurantsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (1.5ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/restaurants_controller.rb:8
+  Rendering api/restaurants/show.json.jbuilder
+  Rendered api/restaurants/_restaurant.json.jbuilder (0.5ms)
+  Rendered api/restaurants/show.json.jbuilder (2.5ms)
+Completed 200 OK in 15ms (Views: 10.5ms | ActiveRecord: 1.5ms)
+
+
