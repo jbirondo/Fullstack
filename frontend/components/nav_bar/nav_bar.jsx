@@ -4,7 +4,7 @@ import UserDropdown from '../dropdown/user_dropdown'
 
 export default ({ currentUser, logout, openModal }) => {
     const display = currentUser ? (
-        <div className="nav-bar">
+        <div className="nav-bar clearfix">
             <Link to="/" className="header-link">
                     <h2>Open Table </h2>
             </Link>

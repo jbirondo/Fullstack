@@ -1,7 +1,9 @@
-.nav_bar {
+.nav-bar {
     display: inline-block;
     box-sizing: border-box;
-    padding: 0px 36px;
+    padding: 0px ;
+    width: 100%;
+    height: 40px;
 }
 
 .nav-sign-up-button {
@@ -30,7 +32,7 @@
     float: left;
     background-image: url(https://media.otstatic.com/img/logo-fb47603a815bb1cf3e89400ba14587f1.png);
     color: rgba(0,0,0,0);
-    display: block;
+    display: inline-block;
     width: 9.75rem;
     height: 2.31rem;
 }
@@ -46,6 +48,8 @@
     font-size: 21px;
     font-weight: lighter;
     padding: 0 8px;
+    display: inline-block;
+    position: relative;
 }
 
 .logout-btn {
@@ -55,4 +59,10 @@
     font: BrandonText;
     border-radius: 8px;
     line-height: 2rem;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
 }

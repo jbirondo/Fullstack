@@ -36,10 +36,10 @@ class userDropdown extends React.Component {
     render() {
         // debugger
         return (
-            <div>
-                <button className="user-dropdown" onClick={this.addHiddenClass}><h3 className="nav-bar-welcome-message">Hi, {this.props.currentUser.email} ⋁</h3></button>
-                <ul className={this.state.hidden ? 'user-dropdown hide' : 'user-dropdown' }>
-                    <li><button onClick={this.props.logout}>Logout</button></li>
+            <div className="user-dropdown-button">
+                <button onClick={this.addHiddenClass}><h3 className="nav-bar-welcome-message">Hi, {this.props.currentUser.email} ⋁</h3></button>
+                <ul className={this.state.hidden ? 'user-dropdown-menu hide' : 'user-dropdown-menu' }>
+                    <li><button className="logout-button" onClick={this.props.logout}>Sign out</button></li>
                 </ul>
             </div>
         )    
