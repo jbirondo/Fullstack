@@ -34,11 +34,12 @@ class userDropdown extends React.Component {
     }
 
     render() {
+        // debugger
         return (
             <div>
-                <button onClick={this.addHiddenClass}>Dropdown</button>
-                <ul className={this.state.hidden ? 'drop-down hide' : 'drop-down' }>
-                    <li><button onClick={logout}>Logout</button></li>
+                <button className="user-dropdown" onClick={this.addHiddenClass}><h3 className="nav-bar-welcome-message">Hi, {this.props.currentUser.email} ⋁</h3></button>
+                <ul className={this.state.hidden ? 'user-dropdown hide' : 'user-dropdown' }>
+                    <li><button onClick={this.props.logout}>Logout</button></li>
                 </ul>
             </div>
         )    
@@ -54,12 +55,16 @@ class userDropdown extends React.Component {
     // }
 } 
 
-// const mapStateToProps = state => ({
-//     dropdown: state.ui.dropdown
-// })
+const mapStateToProps = state => {
+    return {
+    currentUser: state.session.currentUser
+}
+}
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => {
+    // debugger
+    return {
     logout: () => dispatch(logout())
-});
+}};
 // export default DropDown
-export default connect(null, mapDispatchToProps)(userDropdown)
+export default connect(mapStateToProps, mapDispatchToProps)(userDropdown)
