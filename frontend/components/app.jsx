@@ -15,6 +15,7 @@ export default () => (
         <header>
             <NavBarContainer />
         </header>
+        <hr></hr>
         {/* <Route exact path="/" component={Home} /> */}
         {/* <Route exact path='/r/:id' component={RestaurantContainer}> */}
     </div>

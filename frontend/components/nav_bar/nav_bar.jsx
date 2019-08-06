@@ -1,17 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import userDropdown from '../dropdown/user_dropdown'
+import UserDropdown from '../dropdown/user_dropdown'
 
 export default ({ currentUser, logout, openModal }) => {
     const display = currentUser ? (
-        <div className="nav-bar">
+        <div className="nav-bar clearfix">
             <Link to="/" className="header-link">
                     <h2>Open Table </h2>
             </Link>
+<<<<<<< HEAD
             <button className="logout-btn" onClick={logout}>Logout</button>
             {/* <userDropdown /> */}
 
             <h3 className="nav-bar-welcome-message">Hi, {currentUser.email}</h3>
+=======
+            {/* <button className="logout-btn" onClick={logout}>Logout</button> */}
+            <UserDropdown />
+>>>>>>> userDropdown
             {/* needs a link to reservations */}
         </div>
     ) : (
