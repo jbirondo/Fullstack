@@ -10803,3 +10803,472 @@ Processing by Api::RestaurantsController#show as JSON
 Completed 200 OK in 86ms (Views: 68.5ms | ActiveRecord: 7.5ms)
 
 
+Started GET "/" for ::1 at 2019-08-08 13:41:16 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (9.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9NHtK_-HN-LX2ow4ztzsuQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered api/users/_user.json.jbuilder (6.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (227.8ms)
+Completed 200 OK in 571ms (Views: 557.4ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/api/restaurants/2" for ::1 at 2019-08-08 13:41:24 -0700
+Processing by Api::RestaurantsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/restaurants_controller.rb:8
+  Rendering api/restaurants/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (1.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ app/views/api/restaurants/_restaurant.json.jbuilder:3
+  Rendered api/restaurants/_restaurant.json.jbuilder (29.0ms)
+  Rendered api/restaurants/show.json.jbuilder (33.8ms)
+Completed 200 OK in 56ms (Views: 43.5ms | ActiveRecord: 2.2ms)
+
+
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (352.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "fullstack_opentable_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (189.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "fullstack_opentable_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (431.2ms)[0m  [1m[35mCREATE DATABASE "fullstack_opentable_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (273.9ms)[0m  [1m[35mCREATE DATABASE "fullstack_opentable_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (3.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (60.7ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" CASCADE[0m
+  ↳ db/schema.rb:28
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:28
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  ↳ db/schema.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "restaurants" CASCADE[0m
+  ↳ db/schema.rb:39
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" bigserial primary key, "name" character varying NOT NULL, "address" character varying NOT NULL, "capacity" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "description" character varying, "style" character varying, "neighborhood" character varying, "dining_style" character varying, "dress_code" character varying, "chef" character varying)[0m
+  ↳ db/schema.rb:39
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:53
+  [1m[35m (24.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "session_token" character varying NOT NULL, "password_digest" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:53
+  [1m[35m (15.1ms)[0m  [1m[35mALTER TABLE "active_storage_attachments" ADD CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  ↳ db/schema.rb:61
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190808155739)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190807205202),
+(20190729211715),
+(20190807172853),
+(20190806163205),
+(20190807174051);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-08-08 20:50:30.577146"], ["updated_at", "2019-08-08 20:50:30.577146"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (1.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (18.6ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" CASCADE[0m
+  ↳ db/schema.rb:28
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:28
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  ↳ db/schema.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "restaurants" CASCADE[0m
+  ↳ db/schema.rb:39
+  [1m[35m (26.9ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" bigserial primary key, "name" character varying NOT NULL, "address" character varying NOT NULL, "capacity" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "description" character varying, "style" character varying, "neighborhood" character varying, "dining_style" character varying, "dress_code" character varying, "chef" character varying)[0m
+  ↳ db/schema.rb:39
+  [1m[35m (16.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:53
+  [1m[35m (22.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "session_token" character varying NOT NULL, "password_digest" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:53
+  [1m[35m (5.3ms)[0m  [1m[35mALTER TABLE "active_storage_attachments" ADD CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  ↳ db/schema.rb:61
+  [1m[35m (24.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190808155739)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190807205202),
+(20190729211715),
+(20190807172853),
+(20190806163205),
+(20190807174051);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-08-08 20:50:30.821185"], ["updated_at", "2019-08-08 20:50:30.821185"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (1.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-08-08 20:50:30.827842"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mRestaurant Destroy (0.7ms)[0m  [1m[31mDELETE FROM "restaurants"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.9ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Salty Dragon"], ["address", "46709 Hayden Squares"], ["capacity", 4], ["created_at", "2019-08-08 20:50:31.223999"], ["updated_at", "2019-08-08 20:50:31.223999"], ["description", "To ensure that each guest receives prompt, professional, friendly and courteous service. To maintain a clean, comfortable and well maintained premises for our guests and staff. To provide at a fair price – nutritional, well-prepared meals – using only quality ingredients. To ensure that all guests and staff are treated with the respect and dignity they deserve. To thank each guest for the opportunity to serve them. By maintaining these objectives we shall be assured of a fair profit that will allow us to contribute to the community we serve."], ["style", "Bar"], ["neighborhood", "Slytherin"], ["dining_style", "Cafe"], ["dress_code", "Jacket Required"], ["chef", "Brett Lueilwitz"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Belly Brasserie"], ["address", "49533 Loria Island"], ["capacity", 18], ["created_at", "2019-08-08 20:50:31.227906"], ["updated_at", "2019-08-08 20:50:31.227906"], ["description", "We earn the loyalty of the people we serve by first anticipating, then fulfilling their needs with our superior-quality products, a unique shopping experience, customer-focused service and continuous innovation, while generating long-term profitable growth for our shareholders."], ["style", "Desserts"], ["neighborhood", "Gryffindor"], ["dining_style", "Casual Dining"], ["dress_code", "Jacket Preferred"], ["chef", "Edison Greenholt"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Big Curry"], ["address", "28870 Denver Alley"], ["capacity", 5], ["created_at", "2019-08-08 20:50:31.230467"], ["updated_at", "2019-08-08 20:50:31.230467"], ["description", "To achieve and maintain such distinction in food and wine, service, atmosphere and setting that the restaurant gains a first class reputation for gastronomy, gracious and informed hospitality, comfort and beauty which draws new and repeat customers year after year. To achieve the above whilst upholding staff policies and practices which promote a fair and positive working environment. To be aware of and act on our responsibilities as a good corporate citizen to  provide a safe, clean and attractive place for guests to enjoy and for employees to work in - ensure ecologically sound management practices at the restaurant and in our surrounding gardens and woods - undertake meaningful involvement of Restaurant Les Fougères in selected charitable activities in our community and region."], ["style", "Bakery"], ["neighborhood", "Thunderbird"], ["dining_style", "Contemporary Casual"], ["dress_code", "Jacket And Tie Required"], ["chef", "Hugo Lehner"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Green Bakery"], ["address", "2651 Felix Knolls"], ["capacity", 8], ["created_at", "2019-08-08 20:50:31.233075"], ["updated_at", "2019-08-08 20:50:31.233075"], ["description", "To provide an exceptional dining experience that satisfies our guests’ grown-up tastes by being a Cut-Above in everything we do."], ["style", "Bakery"], ["neighborhood", "Horned Serpent"], ["dining_style", "Cafe"], ["dress_code", "Jacket Preferred"], ["chef", "Giselle Monahan"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.5ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Sugar Gastropub"], ["address", "54532 Keeling Pass"], ["capacity", 22], ["created_at", "2019-08-08 20:50:31.235653"], ["updated_at", "2019-08-08 20:50:31.235653"], ["description", "Our Mission at Denny’s is to establish beneficial business relationships with diverse suppliers who share our commitment to customer service, quality and competitive pricing."], ["style", "Mexican"], ["neighborhood", "Wampus"], ["dining_style", "Contemporary Casual"], ["dress_code", "Jacket Preferred"], ["chef", "Jaime Green"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.5ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Fat Bar & Grill"], ["address", "10995 Lindsey Forks"], ["capacity", 13], ["created_at", "2019-08-08 20:50:31.239110"], ["updated_at", "2019-08-08 20:50:31.239110"], ["description", "We earn the loyalty of the people we serve by first anticipating, then fulfilling their needs with our superior-quality products, a unique shopping experience, customer-focused service and continuous innovation, while generating long-term profitable growth for our shareholders."], ["style", "Healthy"], ["neighborhood", "Horned Serpent"], ["dining_style", "Fine Dining"], ["dress_code", "Casual Dress"], ["chef", "Jed Denesik"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "EL Sushi"], ["address", "6689 Heidenreich Rue"], ["capacity", 7], ["created_at", "2019-08-08 20:50:31.241976"], ["updated_at", "2019-08-08 20:50:31.241976"], ["description", "To sell delicious and remarkable food and drinks. That the food and drink we sell meets the highest standards of quality, freshness and seasonality and combines both modern-creative and traditional southern styles of cooking. To consistently provide our customers with impeccable service by demonstrating warmth, graciousness, efficiency, knowledge, professionalism and integrity in our work. To have every customer who comes through our doors leave impressed by Maxie’s and excited to come back again. To create and maintain a restaurant that is comprehensive and exceptional in its attention to every detail of operation. To provide all who work with us a friendly, cooperative and rewarding environment which encourages long- term, satisfying, growth employment. To keep our concept fresh, exciting and on the cutting edge of the hospitality and entertainment industry. To be a giving member of the Ithaca community and to use our restaurant to improve the quality of life in the Finger Lakes region."], ["style", "American (Traditional)"], ["neighborhood", "Gryffindor"], ["dining_style", "Fast Casual"], ["dress_code", "Jacket Required"], ["chef", "Elwood Marquardt V"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Thirsty Burger"], ["address", "156 Alda Islands"], ["capacity", 30], ["created_at", "2019-08-08 20:50:31.244698"], ["updated_at", "2019-08-08 20:50:31.244698"], ["description", "Our mission has been to help people achieve their health and wellness goals. though weve changed over the years, our values have remained the same."], ["style", "Korean"], ["neighborhood", "Gryffindor"], ["dining_style", "Fine Dining"], ["dress_code", "Business Casual"], ["chef", "Mrs. Kerri Berge"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "96 Bakery"], ["address", "33973 Schaefer Neck"], ["capacity", 30], ["created_at", "2019-08-08 20:50:31.247652"], ["updated_at", "2019-08-08 20:50:31.247652"], ["description", "To sell delicious and remarkable food and drinks. That the food and drink we sell meets the highest standards of quality, freshness and seasonality and combines both modern-creative and traditional southern styles of cooking. To consistently provide our customers with impeccable service by demonstrating warmth, graciousness, efficiency, knowledge, professionalism and integrity in our work. To have every customer who comes through our doors leave impressed by Maxie’s and excited to come back again. To create and maintain a restaurant that is comprehensive and exceptional in its attention to every detail of operation. To provide all who work with us a friendly, cooperative and rewarding environment which encourages long- term, satisfying, growth employment. To keep our concept fresh, exciting and on the cutting edge of the hospitality and entertainment industry. To be a giving member of the Ithaca community and to use our restaurant to improve the quality of life in the Finger Lakes region."], ["style", "Ramen"], ["neighborhood", "Thunderbird"], ["dining_style", "Fast Food"], ["dress_code", "Casual Dress"], ["chef", "Fredric Harris"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Thirsty Diner"], ["address", "5851 Fisher Summit"], ["capacity", 20], ["created_at", "2019-08-08 20:50:31.249752"], ["updated_at", "2019-08-08 20:50:31.249752"], ["description", "To ensure that each guest receives prompt, professional, friendly and courteous service. To maintain a clean, comfortable and well maintained premises for our guests and staff. To provide at a fair price – nutritional, well-prepared meals – using only quality ingredients. To ensure that all guests and staff are treated with the respect and dignity they deserve. To thank each guest for the opportunity to serve them. By maintaining these objectives we shall be assured of a fair profit that will allow us to contribute to the community we serve."], ["style", "Bar"], ["neighborhood", "Wampus"], ["dining_style", "Buffet"], ["dress_code", "Casual Dress"], ["chef", "Ms. Gil Konopelski"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "651 Diner"], ["address", "303 Huels Ports"], ["capacity", 12], ["created_at", "2019-08-08 20:50:31.251845"], ["updated_at", "2019-08-08 20:50:31.251845"], ["description", "We are committed to using the finest ingredients in our recipes. No food leaves our kitchen that we ourselves would not eat."], ["style", "European"], ["neighborhood", "Slytherin"], ["dining_style", " Family Style"], ["dress_code", "Jacket And Tie Required"], ["chef", "Armandina Murphy"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.4ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Silver Brasserie"], ["address", "574 Alfonso Crest"], ["capacity", 15], ["created_at", "2019-08-08 20:50:31.256317"], ["updated_at", "2019-08-08 20:50:31.256317"], ["description", "To provide an exceptional dining experience that satisfies our guests’ grown-up tastes by being a Cut-Above in everything we do."], ["style", "Comfort Food"], ["neighborhood", "Wampus"], ["dining_style", " Family Style"], ["dress_code", "Jacket And Tie Required"], ["chef", "Christopher Yundt"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "XBP Subs"], ["address", "25774 Steven Rapids"], ["capacity", 20], ["created_at", "2019-08-08 20:50:31.262511"], ["updated_at", "2019-08-08 20:50:31.262511"], ["description", "Yoshinoya is in business to create the structure and systems needed to allow our customers access to the majority of their away-from-home daily meal requirements on a one-stop-shop basis. All our products shall be of the highest quality and value, be healthy, nutritious and provided with outstanding personal services at the lowest possible prices consistent with a fair return on investment for our shareholders, job enhancementsecurity for our employees and a level of community involvement by everyone connected with our business. All of our products and services shall be delivered consistently and measured one satisfied customer at a time, whether by company-owned or franchised operations, in superior, clean, convenient, fun and friendly neighborhood environments. We pledge to make Yoshinoya the best place to eat and the best place to work."], ["style", "Bar"], ["neighborhood", "Slytherin"], ["dining_style", " Family Style"], ["dress_code", "Casual Dress"], ["chef", "Alan Weissnat"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (1.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Red Subs"], ["address", "5094 Debera Summit"], ["capacity", 20], ["created_at", "2019-08-08 20:50:31.265582"], ["updated_at", "2019-08-08 20:50:31.265582"], ["description", "Our mission is to be a leader in the distribution and merchandising of food, pharmacy, health and personal care items, seasonal merchandise, and related products and services. We place considerable importance on forging strong supplier partnerships. Our suppliers, large or small, local or global, are essential components in accomplishing our mission."], ["style", "Vegetarian"], ["neighborhood", "Ravenclaw"], ["dining_style", "Contemporary Casual"], ["dress_code", "Jacket And Tie Required"], ["chef", "Larae Abernathy"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Smokestack Deli"], ["address", "43343 Kiehn Terrace"], ["capacity", 21], ["created_at", "2019-08-08 20:50:31.269777"], ["updated_at", "2019-08-08 20:50:31.269777"], ["description", "Our mission is to be a leader in the distribution and merchandising of food, pharmacy, health and personal care items, seasonal merchandise, and related products and services. We place considerable importance on forging strong supplier partnerships. Our suppliers, large or small, local or global, are essential components in accomplishing our mission."], ["style", "Indian"], ["neighborhood", "Gryffindor"], ["dining_style", "Fine Dining"], ["dress_code", "Jacket Preferred"], ["chef", "Jefferson Reichert"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "7366 Juice Bar"], ["address", "63527 Don Square"], ["capacity", 23], ["created_at", "2019-08-08 20:50:31.272823"], ["updated_at", "2019-08-08 20:50:31.272823"], ["description", "Our mission has been to help people achieve their health and wellness goals. though weve changed over the years, our values have remained the same."], ["style", "Tex Mex"], ["neighborhood", "Pukwudgie"], ["dining_style", "Fast Food"], ["dress_code", "Business Casual"], ["chef", "Rafael Little"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.5ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "475 Burger"], ["address", "723 Flatley Brook"], ["capacity", 6], ["created_at", "2019-08-08 20:50:31.275349"], ["updated_at", "2019-08-08 20:50:31.275349"], ["description", "Yoshinoya is in business to create the structure and systems needed to allow our customers access to the majority of their away-from-home daily meal requirements on a one-stop-shop basis. All our products shall be of the highest quality and value, be healthy, nutritious and provided with outstanding personal services at the lowest possible prices consistent with a fair return on investment for our shareholders, job enhancementsecurity for our employees and a level of community involvement by everyone connected with our business. All of our products and services shall be delivered consistently and measured one satisfied customer at a time, whether by company-owned or franchised operations, in superior, clean, convenient, fun and friendly neighborhood environments. We pledge to make Yoshinoya the best place to eat and the best place to work."], ["style", "Argentinian"], ["neighborhood", "Horned Serpent"], ["dining_style", "Fast Casual"], ["dress_code", "Casual Dress"], ["chef", "Cordie Fritsch"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.4ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "SQV Creamery"], ["address", "620 Auer Valley"], ["capacity", 6], ["created_at", "2019-08-08 20:50:31.278094"], ["updated_at", "2019-08-08 20:50:31.278094"], ["description", "To achieve and maintain such distinction in food and wine, service, atmosphere and setting that the restaurant gains a first class reputation for gastronomy, gracious and informed hospitality, comfort and beauty which draws new and repeat customers year after year. To achieve the above whilst upholding staff policies and practices which promote a fair and positive working environment. To be aware of and act on our responsibilities as a good corporate citizen to  provide a safe, clean and attractive place for guests to enjoy and for employees to work in - ensure ecologically sound management practices at the restaurant and in our surrounding gardens and woods - undertake meaningful involvement of Restaurant Les Fougères in selected charitable activities in our community and region."], ["style", "American (Traditional)"], ["neighborhood", "Gryffindor"], ["dining_style", "Fast Casual"], ["dress_code", "Jacket Preferred"], ["chef", "Nettie Lemke"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "14 Curry"], ["address", "49594 Bashirian Summit"], ["capacity", 16], ["created_at", "2019-08-08 20:50:31.281214"], ["updated_at", "2019-08-08 20:50:31.281214"], ["description", "Our Mission at Denny’s is to establish beneficial business relationships with diverse suppliers who share our commitment to customer service, quality and competitive pricing."], ["style", "Sushi"], ["neighborhood", "Ravenclaw"], ["dining_style", "Fast Casual"], ["dress_code", "Jacket Required"], ["chef", "Birgit Gutkowski"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Green Spoon"], ["address", "22001 Hettinger Port"], ["capacity", 29], ["created_at", "2019-08-08 20:50:31.283219"], ["updated_at", "2019-08-08 20:50:31.283219"], ["description", "Yoshinoya is in business to create the structure and systems needed to allow our customers access to the majority of their away-from-home daily meal requirements on a one-stop-shop basis. All our products shall be of the highest quality and value, be healthy, nutritious and provided with outstanding personal services at the lowest possible prices consistent with a fair return on investment for our shareholders, job enhancementsecurity for our employees and a level of community involvement by everyone connected with our business. All of our products and services shall be delivered consistently and measured one satisfied customer at a time, whether by company-owned or franchised operations, in superior, clean, convenient, fun and friendly neighborhood environments. We pledge to make Yoshinoya the best place to eat and the best place to work."], ["style", "Vegan"], ["neighborhood", "Horned Serpent"], ["dining_style", "Casual Dining"], ["dress_code", "Formal Attire"], ["chef", "Ricardo Tromp"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Blue Bar & Grill"], ["address", "4888 Beier Fork"], ["capacity", 19], ["created_at", "2019-08-08 20:50:31.285371"], ["updated_at", "2019-08-08 20:50:31.285371"], ["description", "We earn the loyalty of the people we serve by first anticipating, then fulfilling their needs with our superior-quality products, a unique shopping experience, customer-focused service and continuous innovation, while generating long-term profitable growth for our shareholders."], ["style", "Korean"], ["neighborhood", "Thunderbird"], ["dining_style", "Fast Casual"], ["dress_code", "Jacket And Tie Required"], ["chef", "Mrs. Palmer Senger"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "IZ Gastropub"], ["address", "64071 Boyle Fall"], ["capacity", 16], ["created_at", "2019-08-08 20:50:31.290372"], ["updated_at", "2019-08-08 20:50:31.290372"], ["description", "We are committed to using the finest ingredients in our recipes. No food leaves our kitchen that we ourselves would not eat."], ["style", "American (Traditional)"], ["neighborhood", "Ravenclaw"], ["dining_style", "Casual Dining"], ["dress_code", "Jacket And Tie Required"], ["chef", "Elwanda Murazik"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Blue Cafe"], ["address", "9252 Kassulke Bypass"], ["capacity", 18], ["created_at", "2019-08-08 20:50:31.293013"], ["updated_at", "2019-08-08 20:50:31.293013"], ["description", "We earn the loyalty of the people we serve by first anticipating, then fulfilling their needs with our superior-quality products, a unique shopping experience, customer-focused service and continuous innovation, while generating long-term profitable growth for our shareholders."], ["style", "Sandwiches"], ["neighborhood", "Horned Serpent"], ["dining_style", "Casual Dining"], ["dress_code", "Business Casual"], ["chef", "April Brown"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.4ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Smokestack Gastropub"], ["address", "609 Randall Plaza"], ["capacity", 1], ["created_at", "2019-08-08 20:50:31.295117"], ["updated_at", "2019-08-08 20:50:31.295117"], ["description", "Our mission is to be a leader in the distribution and merchandising of food, pharmacy, health and personal care items, seasonal merchandise, and related products and services. We place considerable importance on forging strong supplier partnerships. Our suppliers, large or small, local or global, are essential components in accomplishing our mission."], ["style", "Brazilian"], ["neighborhood", "Gryffindor"], ["dining_style", " Family Style"], ["dress_code", "Formal Attire"], ["chef", "Bernadine Kohler"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Blue Plate Juice Bar"], ["address", "488 Cruickshank Canyon"], ["capacity", 6], ["created_at", "2019-08-08 20:50:31.298587"], ["updated_at", "2019-08-08 20:50:31.298587"], ["description", "We earn the loyalty of the people we serve by first anticipating, then fulfilling their needs with our superior-quality products, a unique shopping experience, customer-focused service and continuous innovation, while generating long-term profitable growth for our shareholders."], ["style", "Pizza"], ["neighborhood", "Thunderbird"], ["dining_style", "Contemporary Casual"], ["dress_code", "Business Casual"], ["chef", "Blake Streich"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Big King"], ["address", "4554 Ondricka Mission"], ["capacity", 30], ["created_at", "2019-08-08 20:50:31.301935"], ["updated_at", "2019-08-08 20:50:31.301935"], ["description", "Our mission has been to help people achieve their health and wellness goals. though weve changed over the years, our values have remained the same."], ["style", "Chinese"], ["neighborhood", "Thunderbird"], ["dining_style", "Casual Dining"], ["dress_code", "Jacket Required"], ["chef", "Jefferson Langworth DVM"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Fat Curry"], ["address", "212 Fay Parkways"], ["capacity", 20], ["created_at", "2019-08-08 20:50:31.304363"], ["updated_at", "2019-08-08 20:50:31.304363"], ["description", "Yoshinoya is in business to create the structure and systems needed to allow our customers access to the majority of their away-from-home daily meal requirements on a one-stop-shop basis. All our products shall be of the highest quality and value, be healthy, nutritious and provided with outstanding personal services at the lowest possible prices consistent with a fair return on investment for our shareholders, job enhancementsecurity for our employees and a level of community involvement by everyone connected with our business. All of our products and services shall be delivered consistently and measured one satisfied customer at a time, whether by company-owned or franchised operations, in superior, clean, convenient, fun and friendly neighborhood environments. We pledge to make Yoshinoya the best place to eat and the best place to work."], ["style", "Healthy"], ["neighborhood", "Hufflepuff"], ["dining_style", "Contemporary Casual"], ["dress_code", "Jacket Preferred"], ["chef", "Lyndia Murazik"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Silver BBQ"], ["address", "1475 O'Conner Ridges"], ["capacity", 1], ["created_at", "2019-08-08 20:50:31.306457"], ["updated_at", "2019-08-08 20:50:31.306457"], ["description", "To provide an exceptional dining experience that satisfies our guests’ grown-up tastes by being a Cut-Above in everything we do."], ["style", "Sushi"], ["neighborhood", "Horned Serpent"], ["dining_style", "Fast Food"], ["dress_code", "Business Casual"], ["chef", "Colin Stokes Jr."]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "36 Kitchen"], ["address", "74146 Cletus Summit"], ["capacity", 26], ["created_at", "2019-08-08 20:50:31.308695"], ["updated_at", "2019-08-08 20:50:31.308695"], ["description", "To sell delicious and remarkable food and drinks. That the food and drink we sell meets the highest standards of quality, freshness and seasonality and combines both modern-creative and traditional southern styles of cooking. To consistently provide our customers with impeccable service by demonstrating warmth, graciousness, efficiency, knowledge, professionalism and integrity in our work. To have every customer who comes through our doors leave impressed by Maxie’s and excited to come back again. To create and maintain a restaurant that is comprehensive and exceptional in its attention to every detail of operation. To provide all who work with us a friendly, cooperative and rewarding environment which encourages long- term, satisfying, growth employment. To keep our concept fresh, exciting and on the cutting edge of the hospitality and entertainment industry. To be a giving member of the Ithaca community and to use our restaurant to improve the quality of life in the Finger Lakes region."], ["style", "American (Traditional)"], ["neighborhood", "Wampus"], ["dining_style", "Cafe"], ["dress_code", "Jacket And Tie Required"], ["chef", "Dr. Kelly Grady"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Spice Gastropub"], ["address", "12373 Heathcote Gateway"], ["capacity", 29], ["created_at", "2019-08-08 20:50:31.310955"], ["updated_at", "2019-08-08 20:50:31.310955"], ["description", "Our mission is to be a leader in the distribution and merchandising of food, pharmacy, health and personal care items, seasonal merchandise, and related products and services. We place considerable importance on forging strong supplier partnerships. Our suppliers, large or small, local or global, are essential components in accomplishing our mission."], ["style", "Thai"], ["neighborhood", "Horned Serpent"], ["dining_style", "Contemporary Casual"], ["dress_code", "Jacket And Tie Required"], ["chef", "Janita Daugherty"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Fast Dragon"], ["address", "8723 Alfonzo Falls"], ["capacity", 15], ["created_at", "2019-08-08 20:50:31.313260"], ["updated_at", "2019-08-08 20:50:31.313260"], ["description", "To achieve and maintain such distinction in food and wine, service, atmosphere and setting that the restaurant gains a first class reputation for gastronomy, gracious and informed hospitality, comfort and beauty which draws new and repeat customers year after year. To achieve the above whilst upholding staff policies and practices which promote a fair and positive working environment. To be aware of and act on our responsibilities as a good corporate citizen to  provide a safe, clean and attractive place for guests to enjoy and for employees to work in - ensure ecologically sound management practices at the restaurant and in our surrounding gardens and woods - undertake meaningful involvement of Restaurant Les Fougères in selected charitable activities in our community and region."], ["style", "Juice & Smoothies"], ["neighborhood", "Wampus"], ["dining_style", "Casual Dining"], ["dress_code", "Jacket Required"], ["chef", "Sheila Wisoky"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "IN Box"], ["address", "35701 Therese Neck"], ["capacity", 6], ["created_at", "2019-08-08 20:50:31.315920"], ["updated_at", "2019-08-08 20:50:31.315920"], ["description", "Our mission has been to help people achieve their health and wellness goals. though weve changed over the years, our values have remained the same."], ["style", "Burgers"], ["neighborhood", "Horned Serpent"], ["dining_style", "Cafe"], ["dress_code", "Jacket Preferred"], ["chef", "Lance Hettinger"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Smokestack Gastropub"], ["address", "544 Borer Road"], ["capacity", 19], ["created_at", "2019-08-08 20:50:31.318609"], ["updated_at", "2019-08-08 20:50:31.318609"], ["description", "Culver’s Restaurant was founded by the Culver family in 1984, which eventually branched out to more than 300 franchised restaurants all over the US. Culver’s is well-known for its ButterBurger, which made the restaurant extremely famous. They also have other items which include salads, sandwiches, desserts, etc."], ["style", "German"], ["neighborhood", "Thunderbird"], ["dining_style", "Fast Casual"], ["dress_code", "Business Casual"], ["chef", "Mrs. Isaias Prohaska"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Sugar Steakhouse"], ["address", "5691 Oberbrunner Alley"], ["capacity", 21], ["created_at", "2019-08-08 20:50:31.322041"], ["updated_at", "2019-08-08 20:50:31.322041"], ["description", "We are committed to using the finest ingredients in our recipes. No food leaves our kitchen that we ourselves would not eat."], ["style", "Greek"], ["neighborhood", "Pukwudgie"], ["dining_style", "Fast Food"], ["dress_code", "Casual Dress"], ["chef", "Dakota Steuber"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.5ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Orange Juice Bar"], ["address", "872 Wilkinson Union"], ["capacity", 1], ["created_at", "2019-08-08 20:50:31.326127"], ["updated_at", "2019-08-08 20:50:31.326127"], ["description", "Yoshinoya is in business to create the structure and systems needed to allow our customers access to the majority of their away-from-home daily meal requirements on a one-stop-shop basis. All our products shall be of the highest quality and value, be healthy, nutritious and provided with outstanding personal services at the lowest possible prices consistent with a fair return on investment for our shareholders, job enhancementsecurity for our employees and a level of community involvement by everyone connected with our business. All of our products and services shall be delivered consistently and measured one satisfied customer at a time, whether by company-owned or franchised operations, in superior, clean, convenient, fun and friendly neighborhood environments. We pledge to make Yoshinoya the best place to eat and the best place to work."], ["style", "Chinese"], ["neighborhood", "Gryffindor"], ["dining_style", "Casual Dining"], ["dress_code", "Jacket Preferred"], ["chef", "Wynona Lemke DDS"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Blue Plate Spoon"], ["address", "8077 Bernhard Center"], ["capacity", 25], ["created_at", "2019-08-08 20:50:31.329130"], ["updated_at", "2019-08-08 20:50:31.329130"], ["description", "Culver’s Restaurant was founded by the Culver family in 1984, which eventually branched out to more than 300 franchised restaurants all over the US. Culver’s is well-known for its ButterBurger, which made the restaurant extremely famous. They also have other items which include salads, sandwiches, desserts, etc."], ["style", "French"], ["neighborhood", "Ravenclaw"], ["dining_style", "Contemporary Casual"], ["dress_code", "Casual Dress"], ["chef", "Dale Hodkiewicz"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Sugar Grill & Tap"], ["address", "244 Muller Island"], ["capacity", 6], ["created_at", "2019-08-08 20:50:31.331972"], ["updated_at", "2019-08-08 20:50:31.331972"], ["description", "SVIs mission is to deliver quality products at affordable prices to our independent retailers, wholesalers and food service partners around the world by providing international procurement, distribution, marketing and supply chain management."], ["style", "Vegetarian"], ["neighborhood", "Thunderbird"], ["dining_style", "Cafe"], ["dress_code", "Casual Dress"], ["chef", "Jermaine Kuhn"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Big Cafe"], ["address", "6977 Normand Shoal"], ["capacity", 16], ["created_at", "2019-08-08 20:50:31.334689"], ["updated_at", "2019-08-08 20:50:31.334689"], ["description", "Delhaize Group will achieve leading positions in food retailing in key mature and emerging markets. We accomplish our goal by developing strong regional companies benefiting from and contributing to the Groups strength, expertise and successful practices. Delhaize Group goes to market with a variety of food store formats. The Group is committed to offer a locally differentiated shopping experience to its customers in each of its markets, to deliver superior value and to maintain high social, environmental and ethical standards."], ["style", "Ethiopean"], ["neighborhood", "Thunderbird"], ["dining_style", "Fast Food"], ["dress_code", "Business Casual"], ["chef", "Jess Batz"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "EAM Diner"], ["address", "17795 Kieth Corner"], ["capacity", 24], ["created_at", "2019-08-08 20:50:31.337334"], ["updated_at", "2019-08-08 20:50:31.337334"], ["description", "To ensure that each guest receives prompt, professional, friendly and courteous service. To maintain a clean, comfortable and well maintained premises for our guests and staff. To provide at a fair price – nutritional, well-prepared meals – using only quality ingredients. To ensure that all guests and staff are treated with the respect and dignity they deserve. To thank each guest for the opportunity to serve them. By maintaining these objectives we shall be assured of a fair profit that will allow us to contribute to the community we serve."], ["style", "Asian"], ["neighborhood", "Thunderbird"], ["dining_style", "Fast Food"], ["dress_code", "Formal Attire"], ["chef", "Beverly Cole"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Silver Box"], ["address", "8511 Mayer Ways"], ["capacity", 25], ["created_at", "2019-08-08 20:50:31.339503"], ["updated_at", "2019-08-08 20:50:31.339503"], ["description", "To provide an exceptional dining experience that satisfies our guests’ grown-up tastes by being a Cut-Above in everything we do."], ["style", "Korean"], ["neighborhood", "Hufflepuff"], ["dining_style", "Fine Dining"], ["dress_code", "Jacket Required"], ["chef", "Sebastian Wuckert Sr."]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Hungry House"], ["address", "984 Alice Villages"], ["capacity", 3], ["created_at", "2019-08-08 20:50:31.341932"], ["updated_at", "2019-08-08 20:50:31.341932"], ["description", "SVIs mission is to deliver quality products at affordable prices to our independent retailers, wholesalers and food service partners around the world by providing international procurement, distribution, marketing and supply chain management."], ["style", "Healthy"], ["neighborhood", "Hufflepuff"], ["dining_style", "Cafe"], ["dress_code", "Jacket Preferred"], ["chef", "Dr. Freddy Schinner"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Red Box"], ["address", "76172 Sabine Mills"], ["capacity", 11], ["created_at", "2019-08-08 20:50:31.343959"], ["updated_at", "2019-08-08 20:50:31.343959"], ["description", "To deliver an exceptional shopping experience by offering the best service, value, quality, and freshest products while being good stewards of our environment and giving back to the communities we serve."], ["style", "Ice Cream"], ["neighborhood", "Wampus"], ["dining_style", " Family Style"], ["dress_code", "Formal Attire"], ["chef", "Daren Bailey I"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Thirsty Juice Bar"], ["address", "7063 Schmidt Greens"], ["capacity", 29], ["created_at", "2019-08-08 20:50:31.346126"], ["updated_at", "2019-08-08 20:50:31.346126"], ["description", "Our mission has been to help people achieve their health and wellness goals. though weve changed over the years, our values have remained the same."], ["style", "American (New)"], ["neighborhood", "Wampus"], ["dining_style", "Fast Food"], ["dress_code", "Casual Dress"], ["chef", "Darrick Rice"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Red Grill & Tap"], ["address", "175 Labadie Groves"], ["capacity", 1], ["created_at", "2019-08-08 20:50:31.348219"], ["updated_at", "2019-08-08 20:50:31.348219"], ["description", "We earn the loyalty of the people we serve by first anticipating, then fulfilling their needs with our superior-quality products, a unique shopping experience, customer-focused service and continuous innovation, while generating long-term profitable growth for our shareholders."], ["style", "Ramen"], ["neighborhood", "Ravenclaw"], ["dining_style", "Fast Food"], ["dress_code", "Business Casual"], ["chef", "Samantha Douglas"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.4ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Blue Burger"], ["address", "7879 Gerlach Fords"], ["capacity", 17], ["created_at", "2019-08-08 20:50:31.350190"], ["updated_at", "2019-08-08 20:50:31.350190"], ["description", "To provide an exceptional dining experience that satisfies our guests’ grown-up tastes by being a Cut-Above in everything we do."], ["style", "Vegetarian"], ["neighborhood", "Slytherin"], ["dining_style", "Fine Dining"], ["dress_code", "Business Casual"], ["chef", "Miguelina Sporer V"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Sweet Pub"], ["address", "75096 Rosenbaum Groves"], ["capacity", 4], ["created_at", "2019-08-08 20:50:31.352660"], ["updated_at", "2019-08-08 20:50:31.352660"], ["description", "We earn the loyalty of the people we serve by first anticipating, then fulfilling their needs with our superior-quality products, a unique shopping experience, customer-focused service and continuous innovation, while generating long-term profitable growth for our shareholders."], ["style", "French"], ["neighborhood", "Hufflepuff"], ["dining_style", "Contemporary Casual"], ["dress_code", "Formal Attire"], ["chef", "Harlan Prohaska PhD"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.4ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Golden BBQ"], ["address", "697 Hudson Court"], ["capacity", 29], ["created_at", "2019-08-08 20:50:31.355031"], ["updated_at", "2019-08-08 20:50:31.355031"], ["description", "Yoshinoya is in business to create the structure and systems needed to allow our customers access to the majority of their away-from-home daily meal requirements on a one-stop-shop basis. All our products shall be of the highest quality and value, be healthy, nutritious and provided with outstanding personal services at the lowest possible prices consistent with a fair return on investment for our shareholders, job enhancementsecurity for our employees and a level of community involvement by everyone connected with our business. All of our products and services shall be delivered consistently and measured one satisfied customer at a time, whether by company-owned or franchised operations, in superior, clean, convenient, fun and friendly neighborhood environments. We pledge to make Yoshinoya the best place to eat and the best place to work."], ["style", "French"], ["neighborhood", "Thunderbird"], ["dining_style", "Casual Dining"], ["dress_code", "Jacket Required"], ["chef", "Leroy Nolan III"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Green Gastropub"], ["address", "55101 Hauck Rue"], ["capacity", 18], ["created_at", "2019-08-08 20:50:31.358685"], ["updated_at", "2019-08-08 20:50:31.358685"], ["description", "Yoshinoya is in business to create the structure and systems needed to allow our customers access to the majority of their away-from-home daily meal requirements on a one-stop-shop basis. All our products shall be of the highest quality and value, be healthy, nutritious and provided with outstanding personal services at the lowest possible prices consistent with a fair return on investment for our shareholders, job enhancementsecurity for our employees and a level of community involvement by everyone connected with our business. All of our products and services shall be delivered consistently and measured one satisfied customer at a time, whether by company-owned or franchised operations, in superior, clean, convenient, fun and friendly neighborhood environments. We pledge to make Yoshinoya the best place to eat and the best place to work."], ["style", "American (New)"], ["neighborhood", "Slytherin"], ["dining_style", "Contemporary Casual"], ["dress_code", "Formal Attire"], ["chef", "Milan Tromp"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Salty Sushi"], ["address", "999 Tobi Mall"], ["capacity", 17], ["created_at", "2019-08-08 20:50:31.361176"], ["updated_at", "2019-08-08 20:50:31.361176"], ["description", "SVIs mission is to deliver quality products at affordable prices to our independent retailers, wholesalers and food service partners around the world by providing international procurement, distribution, marketing and supply chain management."], ["style", "Healthy"], ["neighborhood", "Hufflepuff"], ["dining_style", "Contemporary Casual"], ["dress_code", "Jacket Preferred"], ["chef", "Danille Rowe"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "capacity", "created_at", "updated_at", "description", "style", "neighborhood", "dining_style", "dress_code", "chef") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Sweet Pizza"], ["address", "78876 Bernier Mountains"], ["capacity", 12], ["created_at", "2019-08-08 20:50:31.363091"], ["updated_at", "2019-08-08 20:50:31.363091"], ["description", "We earn the loyalty of the people we serve by first anticipating, then fulfilling their needs with our superior-quality products, a unique shopping experience, customer-focused service and continuous innovation, while generating long-term profitable growth for our shareholders."], ["style", "Ramen"], ["neighborhood", "Ravenclaw"], ["dining_style", "Buffet"], ["dress_code", "Business Casual"], ["chef", "Imogene Dibbert Jr."]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
