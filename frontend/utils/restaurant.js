@@ -5,10 +5,9 @@ export const getRestaurant = id => (
     })
 )
 
-export const getRestaurants = data => (
+export const getRestaurants = () => (
     $.ajax({
         method: "GET",
         url: "api/restaurants",
-        data
     })
 )

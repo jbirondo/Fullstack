@@ -13,6 +13,12 @@ Restaurant.delete_all
   Restaurant.create!(
         name: Faker::Restaurant.name,
         address: Faker::Address.street_address,
-        capacity: Faker::Number.digit
+        capacity: (1..30).to_a.sample,
+        description: Faker::Restaurant.description,
+        style: Faker::Restaurant.type,
+        neighborhood: Faker::Movies::HarryPotter.house,
+        dining_style: ["Fine Dining", "Casual Dining", "Contemporary Casual", " Family Style", "Fast Casual", "Fast Food", "Cafe", "Buffet"].sample,
+        dress_code: ["Casual Dress", "Business Casual", "Jacket Preferred", "Jacket Required", "Jacket And Tie Required", "Formal Attire"].sample,
+        chef: Faker::Name.name
   )
 end

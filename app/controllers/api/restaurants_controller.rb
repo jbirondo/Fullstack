@@ -9,18 +9,29 @@ class Api::RestaurantsController < ApplicationController
         render :show
     end
 
-    def create
-        @restaurant = Restaurant.new(restaurant_params)
-        if @restaurant.save
-            render :show
-        else
-            render json: @restaurant.errors.full_messages, status: 422
-        end
-    end
+    # def create
+    #     @restaurant = Restaurant.new(restaurant_params)
+    #     if @restaurant.save
+    #         render :show
+    #     else
+    #         render json: @restaurant.errors.full_messages, status: 422
+    #     end
+    # end
 
     private
 
     def restaurant_params
-        params.require(:restaurant).permit(:name, :address, :capacity)
+        params.require(:restaurant).permit(
+            :name, 
+            :address, 
+            :capacity, 
+            :style, 
+            :description,
+            :neighborhood,
+            :dining_style,
+            :dress_code,
+            :chef,
+            photos: []
+            )
     end
 end
