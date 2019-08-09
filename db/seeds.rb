@@ -11,6 +11,7 @@ require 'open-uri'
 
 User.delete_all
 Restaurant.delete_all
+Review.delete_all
 
 User.create!(email: "demo", password: "hunter2")
 
@@ -666,5 +667,21 @@ files = file_array_a + file_array_b + file_array_c + file_array_d + file_array_e
       filename: "test_photo.jpg"
     )
   end
+end
+
+10.times do |i|
+  User.create!(
+    email: Faker::Internet.safe_email,
+    password: "hunter2"
+  )
+end
+
+200.times do |i|
+  Review.create(
+    body: Faker::Restaurant.review,
+    rating: [1,2,3,4,5].sample,
+    restaurant_id: Restaurant.all.sample.id,
+    user_id: User.all.sample.id
+  )
 end
 

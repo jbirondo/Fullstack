@@ -17,12 +17,20 @@ class RestaurantShow extends React.Component {
     }
 
     render () {
-
+        // debugger
         if (!this.props.restaurant) {
             return (
                 <div className="restaurant-show-loading">Loading...</div>
-            )
+                )
         }
+        // debugger
+        let reviews;
+        if (this.props.restaurant.reviews) {
+            reviews = this.props.restaurant.reviews.map(review => (
+                <li className="review-list-item" key={review.id}><section>Rating: {review.rating}</section> <section>{review.body}</section></li>
+            ))
+        }
+        // debugger
         return (
             <div>
                 <div className="upper-background">
@@ -76,6 +84,12 @@ class RestaurantShow extends React.Component {
                             <div><img className="test-photo" src={this.props.restaurant.photoUrls[5]} /></div>
                             <div><img className="test-photo" src={this.props.restaurant.photoUrls[6]} /></div>
                             <div><img className="test-photo" src={this.props.restaurant.photoUrls[7]} /></div>
+                        </div>
+                        <div className="review-component">
+                            <h1 className="reviews-header">Reviews </h1>
+                            <ul>
+                                {reviews}
+                            </ul>
                         </div>
                     </div>
                 </div>

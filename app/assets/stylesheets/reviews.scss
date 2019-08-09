@@ -1,0 +1,20 @@
+// Place all the styles related to the Reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.reviews-header {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    color: #2d333f;
+    border-bottom: 1px solid #d8d9db;
+    padding-bottom: 16px;
+    margin: 0 0 16px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-list-item {
+    list-style-type: none;
+    margin-bottom: 16px;
+}
