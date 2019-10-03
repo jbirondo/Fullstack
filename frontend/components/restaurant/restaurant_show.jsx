@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-
 class RestaurantShow extends React.Component {
     constructor(props){
         super(props)
@@ -26,8 +25,13 @@ class RestaurantShow extends React.Component {
         // debugger
         let reviews;
         if (this.props.restaurant.reviews) {
+            debugger
             reviews = this.props.restaurant.reviews.map(review => (
-                <li className="review-list-item" key={review.id}><section>Rating: {review.rating}</section> <section>{review.body}</section></li>
+                <li className="review-list-item" key={review.id}>
+                    <div>Email: {review.email}</div>
+                    <div>Rating: {review.rating}</div>
+                    <div>{review.body}</div>
+                </li>
             ))
         }
         // debugger

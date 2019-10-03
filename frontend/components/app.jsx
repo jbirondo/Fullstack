@@ -13,7 +13,6 @@ import RestaurantShowContainer from './restaurant/restaurant_show_container'
 export default () => (
     <div>
         <Modal />
-        {/* <UserDropdown /> */}
         <header>
             <NavBarContainer />
         </header>

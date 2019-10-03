@@ -5,4 +5,5 @@ class Restaurant < ApplicationRecord
         presence: true
     has_many :reviews
     has_many_attached :photos
+
 end
