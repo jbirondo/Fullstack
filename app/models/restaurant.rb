@@ -4,6 +4,7 @@ class Restaurant < ApplicationRecord
         :dining_style, :dress_code, :chef, 
         presence: true
     has_many :reviews
+    has_many :reservations
     has_many_attached :photos
 
 end
