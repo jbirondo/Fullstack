@@ -15,7 +15,7 @@ const receiveReservation = (reservation) => ({
 })
 
 const removeReservation = (reservation) => ({
-    reservation: reservation,
+    reservationId: reservation.id,
     type: REMOVE_RESERVATION
 })
 
