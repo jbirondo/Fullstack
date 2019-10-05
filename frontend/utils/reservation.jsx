@@ -7,7 +7,7 @@ export const getReservation = id => (
 
 export const postReservation = (reservation) => (
     $.ajax({
-        method: "GET",
+        method: "POST",
         url: "api/reservations",
         data: { reservation }
     })
