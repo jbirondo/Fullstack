@@ -15,7 +15,7 @@ export const receiveRestaurant = payload => ({
 
 export const requestAllRestaurants = () => dispatch => (
     getRestaurants()
-        .then(restaurants => {dispatch(receiveRestaurants(restaurants))})
+        .then(restaurants => { dispatch(receiveRestaurants(restaurants))})
 )
 
 export const requestRestaurant = id => dispatch => (

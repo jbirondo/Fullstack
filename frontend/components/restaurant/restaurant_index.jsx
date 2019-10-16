@@ -1,16 +1,20 @@
+import React, { Component } from 'react'
+
+class RestaurantIndex extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    // debugger
+    console.log(this)
+    // debugger
+    return(
+    <div>Hello</div>
+    )
+  }
 
 
+}
 
-const mapStateToProps = state => {
-  return {
-    restaurants: state.entities.restaurants
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    closeModal: () => dispatch(closeModal())
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(RestaurantIndex);
+export default RestaurantIndex

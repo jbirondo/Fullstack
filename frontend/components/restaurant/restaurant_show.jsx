@@ -17,6 +17,7 @@ class RestaurantShow extends React.Component {
 
     render () {
         // debugger
+        console.log(this)
         if (!this.props.restaurant) {
             return (
                 <div className="restaurant-show-loading">Loading...</div>
@@ -25,7 +26,6 @@ class RestaurantShow extends React.Component {
         // debugger
         let reviews;
         if (this.props.restaurant.reviews) {
-            debugger
             reviews = this.props.restaurant.reviews.map(review => (
                 <li className="review-list-item" key={review.id}>
                     <div>Email: {review.email}</div>

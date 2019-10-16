@@ -1,5 +1,4 @@
 import { requestRestaurant } from '../../actions/restaurant'
-import { selectRestaurant } from '../../reducers/selectors'
 import { connect } from 'react-redux'
 import RestaurantShow from './restaurant_show'
 

@@ -1,9 +1,4 @@
-import {
-    getReservation,
-    postReservation,
-    updateReservation,
-    deleteReservation
-} from "../utils/reservation"
+import * as ReserverationAPIUtils from "../utils/reservation"
 
 // export const RECEIVE_RESERVATIONS = "RECEIVE_RESERVATIONS"
 export const RECEIVE_RESERVATION = "RECEIVE_RESERVATION"
@@ -20,28 +15,28 @@ const removeReservation = (reservation) => ({
 })
 
 export const getReservation = (id) => (dispatch) => (
-    getReservation(id)
+    ReserverationAPIUtils.getReservation(id)
     .then( reservation => 
         dispatch(receiveReservation(reservation)
     ))
 )
 
 export const postReservation = (reservation) => (dispatch )=> (
-    postReservation(reservation)
+    ReserverationAPIUtils.postReservation(reservation)
     .then( reservation => 
         dispatch(receiveReservation(reservation)
     )) 
 )
 
 export const updateReservation = (reservation) => (dispatch) => (
-    updateReservation(reservation)
+    ReserverationAPIUtils.updateReservation(reservation)
     .then ( reservation => 
         dispatch(receiveReservation(reservation)
     ))
 )
 
 export const deleteReservation = (id) => (dispatch) => (
-    deleteReservation(id)
+    ReserverationAPIUtils.deleteReservation(id)
     .then( reservation => 
         dispatch(removeReservation(reservation)
     ))
