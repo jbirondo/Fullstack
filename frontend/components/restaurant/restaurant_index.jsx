@@ -33,25 +33,55 @@ class RestaurantIndex extends React.Component {
         }
       }
     )
-    console.log(gryff)
-    console.log(huffle)
-    console.log(slyth)
-    console.log(raven)
     return(
-      <ul>
-        {restaurantArray.map(restaurant => 
-          <li className="restaurant-index-li" key={restaurant.id}>
-            <Link to={`/restaurants/${restaurant.id}`}>
-              {restaurant.name}
-            </Link>
-            <img className="restaurant-index-img" src={restaurant.photoUrls[0]}/>
-          </li>)}
-      </ul>
+      <div>
+        <div>Restaurants in the Gryffindor neighborhood
+          <ul className="restaurant-index-ul">
+            {gryff.map(restaurant => 
+              <li className="restaurant-index-li" key={restaurant.id}>
+                <Link to={`/restaurants/${restaurant.id}`}>
+                  {restaurant.name}
+                </Link>
+                <img className="restaurant-index-img" src={restaurant.photoUrls[0]}/>
+              </li>)}
+          </ul>
+        </div>
+        <div>Restaurants in the Hufflepuff neighborhood
+          <ul className="restaurant-index-ul">
+            {huffle.map(restaurant => 
+              <li className="restaurant-index-li" key={restaurant.id}>
+                <Link to={`/restaurants/${restaurant.id}`}>
+                  {restaurant.name}
+                </Link>
+                <img className="restaurant-index-img" src={restaurant.photoUrls[0]}/>
+              </li>)}
+          </ul>
+        </div>
+        <div>Restaurants in the Slytherin neighborhood
+          <ul className="restaurant-index-ul">
+            {slyth.map(restaurant => 
+              <li className="restaurant-index-li" key={restaurant.id}>
+                <Link to={`/restaurants/${restaurant.id}`}>
+                  {restaurant.name}
+                </Link>
+                <img className="restaurant-index-img" src={restaurant.photoUrls[0]}/>
+              </li>)}
+          </ul>
+        </div>
+        <div>Restaurants in the Ravenclaw neighborhood
+          <ul className="restaurant-index-ul">
+            {raven.map(restaurant => 
+              <li className="restaurant-index-li" key={restaurant.id}>
+                <Link to={`/restaurants/${restaurant.id}`}>
+                  {restaurant.name}
+                </Link>
+                <img className="restaurant-index-img" src={restaurant.photoUrls[0]}/>
+              </li>)}
+          </ul>
+        </div>
+      </div>
     )
-    
   }
-
-
 }
 
 export default RestaurantIndex
