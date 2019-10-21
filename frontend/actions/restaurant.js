@@ -3,10 +3,12 @@ import { getRestaurant, getRestaurants } from "../utils/restaurant"
 export const RECEIVE_RESTAURANT = "RECEIVE_RESTAURANT"
 export const RECEIVE_RESTAURANTS = "RECEIVE_RESTAURANTS"
 
-export const receiveRestaurants = restaurants => ({
-    type: RECEIVE_RESTAURANTS,
-    restaurants
-})
+export const receiveRestaurants = restaurants =>
+{
+    // debugger
+    return ({type: RECEIVE_RESTAURANTS,
+    restaurants})
+}
 
 export const receiveRestaurant = payload => ({
     type: RECEIVE_RESTAURANT,
