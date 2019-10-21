@@ -17,11 +17,15 @@ class RestaurantIndex extends React.Component {
       )
     } 
     const restaurantArray = Object.keys(this.props.restaurants).map( key => this.props.restaurants[key])
+    
     return(
       <ul>
         {restaurantArray.map(restaurant => 
-          <li key={restaurant.id}>
-            <Link to={`/restaurants/${restaurant.id}`}>{restaurant.name}</Link>
+          <li className="restaurant-index-li" key={restaurant.id}>
+            <Link to={`/restaurants/${restaurant.id}`}>
+              {restaurant.name}
+            </Link>
+            <img className="restaurant-index-img" src={restaurant.photoUrls[0]}/>
           </li>)}
       </ul>
     )
