@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from "react-router-dom"
+import RestaurantIndexList from "./restaurant_index_list"
 class RestaurantIndex extends React.Component {
   constructor(props) {
     super(props)
@@ -7,8 +8,12 @@ class RestaurantIndex extends React.Component {
 
   componentDidMount() {
     this.props.requestAllRestaurants();
-    // debugger
   }
+
+  advanceButton() {
+
+  }
+
 
   render() {
     if (!this.props.restaurants) {
@@ -21,6 +26,9 @@ class RestaurantIndex extends React.Component {
     const huffle = new Array
     const slyth = new Array
     const raven = new Array
+    const fineDining = new Array
+    const casualDining = new Array
+    const familyStyle = new Array
     restaurantArray.forEach(restaurant => {
         if (restaurant.neighborhood == "Gryffindor") {
           gryff.push(restaurant)
@@ -33,51 +41,37 @@ class RestaurantIndex extends React.Component {
         }
       }
     )
+    restaurantArray.forEach(restaurant => {
+      if (restaurant.dining_style == "Fine Dining") {
+        fineDining.push(restaurant)
+      } else if (restaurant.dining_style == "Casual Dining") {
+        casualDining.push(restaurant)
+      } else if (restaurant.dining_style == " Family Style") {
+        familyStyle.push(restaurant)
+      } 
+    })
     return(
       <div>
         <div>Restaurants in the Gryffindor neighborhood
-          <ul className="restaurant-index-ul">
-            {gryff.map(restaurant => 
-              <li className="restaurant-index-li" key={restaurant.id}>
-                <Link to={`/restaurants/${restaurant.id}`}>
-                  {restaurant.name}
-                </Link>
-                <img className="restaurant-index-img" src={restaurant.photoUrls[0]}/>
-              </li>)}
-          </ul>
+          <RestaurantIndexList restaurants={gryff}></RestaurantIndexList>
         </div>
         <div>Restaurants in the Hufflepuff neighborhood
-          <ul className="restaurant-index-ul">
-            {huffle.map(restaurant => 
-              <li className="restaurant-index-li" key={restaurant.id}>
-                <Link to={`/restaurants/${restaurant.id}`}>
-                  {restaurant.name}
-                </Link>
-                <img className="restaurant-index-img" src={restaurant.photoUrls[0]}/>
-              </li>)}
-          </ul>
+          <RestaurantIndexList restaurants={huffle}></RestaurantIndexList>
         </div>
         <div>Restaurants in the Slytherin neighborhood
-          <ul className="restaurant-index-ul">
-            {slyth.map(restaurant => 
-              <li className="restaurant-index-li" key={restaurant.id}>
-                <Link to={`/restaurants/${restaurant.id}`}>
-                  {restaurant.name}
-                </Link>
-                <img className="restaurant-index-img" src={restaurant.photoUrls[0]}/>
-              </li>)}
-          </ul>
+          <RestaurantIndexList restaurants={slyth}></RestaurantIndexList>
         </div>
         <div>Restaurants in the Ravenclaw neighborhood
-          <ul className="restaurant-index-ul">
-            {raven.map(restaurant => 
-              <li className="restaurant-index-li" key={restaurant.id}>
-                <Link to={`/restaurants/${restaurant.id}`}>
-                  {restaurant.name}
-                </Link>
-                <img className="restaurant-index-img" src={restaurant.photoUrls[0]}/>
-              </li>)}
-          </ul>
+          <RestaurantIndexList restaurants={raven}></RestaurantIndexList>
+        </div>
+        <div>Family Style restaurants in your area
+          <RestaurantIndexList restaurants={familyStyle}></RestaurantIndexList>
+        </div>
+        <div>Casual Dining restaurants in your area
+          <RestaurantIndexList restaurants={casualDining}></RestaurantIndexList>
+        </div>
+        <div>Fine Dining restaurants in your area
+          <RestaurantIndexList restaurants={fineDining}></RestaurantIndexList>
         </div>
       </div>
     )
