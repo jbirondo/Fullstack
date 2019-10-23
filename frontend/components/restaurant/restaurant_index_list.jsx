@@ -23,23 +23,66 @@ class RestaurantIndexList extends React.Component {
 
     render() {
         const eles = this.window(this.props.restaurants)
-        return(
-            <ul className="restaurant-index-ul">
-                {eles.map(restaurant =>
-                    <li className="restaurant-index-li" key={restaurant.id}>
-                        <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
-                            <div>{restaurant.name}</div>
-                            <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
-                            <div>{restaurant.style}</div>
-                        </Link>
-                    </li>)}
-                <button 
-                    className="restaurant-index-ul-advancing-button"
-                    onClick={() => this.setState({ pos1: this.state.pos1 + 4, pos2: this.state.pos2 + 4 })}
-                    >>
-                </button>
-            </ul>
-        )
+        if (this.state.pos1 == 0) {
+            return(
+                <ul className="restaurant-index-ul">
+                    {eles.map(restaurant =>
+                        <li className="restaurant-index-li" key={restaurant.id}>
+                            <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
+                                <div>{restaurant.name}</div>
+                                <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
+                                <div>{restaurant.style}</div>
+                            </Link>
+                        </li>)}
+                    <button
+                        className="restaurant-index-ul-increase-button"
+                        onClick={() => this.setState({ pos1: this.state.pos1 + 4, pos2: this.state.pos2 + 4 })}
+                    >+
+                    </button>
+                </ul>
+            )
+        } else if ( this.state.pos1 >= 4 && this.state.pos2 < this.props.restaurants.length ){ 
+            return (
+                <ul className="restaurant-index-ul">
+                    <button
+                        className="restaurant-index-ul-decrease-button"
+                        onClick={() => this.setState({ pos1: this.state.pos1 - 4, pos2: this.state.pos2 - 4 })}
+                    >-
+                    </button>
+                    {eles.map(restaurant =>
+                        <li className="restaurant-index-li" key={restaurant.id}>
+                            <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
+                                <div>{restaurant.name}</div>
+                                <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
+                                <div>{restaurant.style}</div>
+                            </Link>
+                        </li>)}
+                    <button
+                        className="restaurant-index-ul-increase-button"
+                        onClick={() => this.setState({ pos1: this.state.pos1 + 4, pos2: this.state.pos2 + 4 })}
+                    >+
+                    </button>
+                </ul>
+            )
+        } else if (this.state.pos2 >= this.props.restaurants.length) {
+            return (
+                <ul className="restaurant-index-ul">
+                    <button
+                        className="restaurant-index-ul-decrease-button"
+                        onClick={() => this.setState({ pos1: this.state.pos1 - 4, pos2: this.state.pos2 - 4 })}
+                    >-
+                    </button>
+                    {eles.map(restaurant =>
+                        <li className="restaurant-index-li" key={restaurant.id}>
+                            <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
+                                <div>{restaurant.name}</div>
+                                <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
+                                <div>{restaurant.style}</div>
+                            </Link>
+                        </li>)}
+                </ul>
+            )
+        }
     }
 }
 
