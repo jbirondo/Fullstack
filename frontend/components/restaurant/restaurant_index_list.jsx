@@ -3,23 +3,22 @@ import { Link } from "react-router-dom"
 class RestaurantIndexList extends React.Component {
     constructor(props) {
         super(props)
-        this.pos1 = 0
-        this.pos2 = 4
+        this.state = {
+            pos1: 0,
+            pos2: 4
+        }
     }
 
     window(arr) {
-        return arr.slice(this.pos1, this.pos2)
+        return arr.slice(this.state.pos1, this.state.pos2)
     }
 
     nextWindow(arr) {
-        return this.window(arr, this.pos1 + 4, this.pos2 + 4)
+        return this.window(arr, this.state.pos1 + 4, this.state.pos2 + 4)
     }
 
-    componentDidUpdate(prevProps) {
-        // if (prevProps.match.params.restaurantId !== this.props.match.params.restaurantId) {
-        //     this.props.requestRestaurant(this.props.match.params.restaurantId);
-        // }
-        
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(prevState)
     }
 
     render() {
@@ -36,7 +35,7 @@ class RestaurantIndexList extends React.Component {
                     </li>)}
                 <button 
                     className="restaurant-index-ul-advancing-button"
-                    onClick={() => this.nextWindow(this.props.restaurants, this.pos1, this.pos2)}
+                    onClick={() => this.setState({ pos1: this.state.pos1 + 4, pos2: this.state.pos2 + 4 })}
                     >>
                 </button>
             </ul>

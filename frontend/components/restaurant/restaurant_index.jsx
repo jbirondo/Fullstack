@@ -10,11 +10,6 @@ class RestaurantIndex extends React.Component {
     this.props.requestAllRestaurants();
   }
 
-  advanceButton() {
-
-  }
-
-
   render() {
     if (!this.props.restaurants) {
       return (
