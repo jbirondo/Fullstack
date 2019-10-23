@@ -13,13 +13,9 @@ class RestaurantIndexList extends React.Component {
         return arr.slice(this.state.pos1, this.state.pos2)
     }
 
-    nextWindow(arr) {
-        return this.window(arr, this.state.pos1 + 4, this.state.pos2 + 4)
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(prevState)
-    }
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     console.log(prevState)
+    // }
 
     render() {
         const eles = this.window(this.props.restaurants)
