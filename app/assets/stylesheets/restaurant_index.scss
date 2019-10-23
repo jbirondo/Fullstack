@@ -1,25 +1,4 @@
-.restaurant-index-img {
-    height: 100px;
-    width: 100px;
-}
-
-.restaurant-index-li {
-    display: flex;
-    flex-direction: column;
-}
-
-.restaurant-index-ul {
-    display: flex;
-    flex-direction: row;
-}
-
-.restaurant-index-ul-increase-button {
-    height: 20px;
-    width: 20px;
-}
-
-.restaurant-index-ul-decrease-button {
-    height: 20px;
-    width: 20px;
+.restaurant-index-header {
+    justify-content: center;
     align-items: center;
 }

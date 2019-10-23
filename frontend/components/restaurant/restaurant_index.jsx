@@ -47,25 +47,25 @@ class RestaurantIndex extends React.Component {
     })
     return(
       <div>
-        <div>Restaurants in the Gryffindor neighborhood
+        <div className="restaurant-index-header">Restaurants in the Gryffindor neighborhood
           <RestaurantIndexList restaurants={gryff}></RestaurantIndexList>
         </div>
-        <div>Restaurants in the Hufflepuff neighborhood
+        <div className="restaurant-index-header">Restaurants in the Hufflepuff neighborhood
           <RestaurantIndexList restaurants={huffle}></RestaurantIndexList>
         </div>
-        <div>Restaurants in the Slytherin neighborhood
+        <div className="restaurant-index-header">Restaurants in the Slytherin neighborhood
           <RestaurantIndexList restaurants={slyth}></RestaurantIndexList>
         </div>
-        <div>Restaurants in the Ravenclaw neighborhood
+        <div className="restaurant-index-header">Restaurants in the Ravenclaw neighborhood
           <RestaurantIndexList restaurants={raven}></RestaurantIndexList>
         </div>
-        <div>Family Style restaurants in your area
+        <div className="restaurant-index-header">Family Style restaurants in your area
           <RestaurantIndexList restaurants={familyStyle}></RestaurantIndexList>
         </div>
-        <div>Casual Dining restaurants in your area
+        <div className="restaurant-index-header">Casual Dining restaurants in your area
           <RestaurantIndexList restaurants={casualDining}></RestaurantIndexList>
         </div>
-        <div>Fine Dining restaurants in your area
+        <div className="restaurant-index-header">Fine Dining restaurants in your area
           <RestaurantIndexList restaurants={fineDining}></RestaurantIndexList>
         </div>
       </div>
