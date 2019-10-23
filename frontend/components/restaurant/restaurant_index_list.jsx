@@ -19,6 +19,7 @@ class RestaurantIndexList extends React.Component {
         // if (prevProps.match.params.restaurantId !== this.props.match.params.restaurantId) {
         //     this.props.requestRestaurant(this.props.match.params.restaurantId);
         // }
+        
     }
 
     render() {
