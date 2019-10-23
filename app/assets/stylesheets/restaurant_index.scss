@@ -8,10 +8,6 @@
     flex-direction: column;
 }
 
-.restaurant-index-li:nth-of-type(1n+5) {
-    display:none;
-}
-
 .restaurant-index-ul {
     display: flex;
     flex-direction: row;
