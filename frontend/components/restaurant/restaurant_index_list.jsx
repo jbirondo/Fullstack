@@ -26,8 +26,8 @@ class RestaurantIndexList extends React.Component {
                         {eles.map(restaurant =>
                             <li className="restaurant-index-li" key={restaurant.id}>
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
-                                    <div>{restaurant.name}</div>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
+                                    <div>{restaurant.name}</div>
                                     <div>{restaurant.style}</div>
                                 </Link>
                             </li>)}
@@ -51,8 +51,8 @@ class RestaurantIndexList extends React.Component {
                         {eles.map(restaurant =>
                             <li className="restaurant-index-li" key={restaurant.id}>
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
-                                    <div>{restaurant.name}</div>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
+                                    <div>{restaurant.name}</div>
                                     <div>{restaurant.style}</div>
                                 </Link>
                             </li>)}
@@ -76,8 +76,8 @@ class RestaurantIndexList extends React.Component {
                         {eles.map(restaurant =>
                             <li className="restaurant-index-li" key={restaurant.id}>
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
-                                    <div>{restaurant.name}</div>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
+                                    <div>{restaurant.name}</div>
                                     <div>{restaurant.style}</div>
                                 </Link>
                             </li>)}
@@ -92,8 +92,8 @@ class RestaurantIndexList extends React.Component {
                         {eles.map(restaurant =>
                             <li className="restaurant-index-li" key={restaurant.id}>
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
-                                    <div>{restaurant.name}</div>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
+                                    <div>{restaurant.name}</div>
                                     <div>{restaurant.style}</div>
                                 </Link>
                             </li>)}

@@ -20,7 +20,7 @@ h1, h2, p, strong, em, a {
   padding: 0;
   outline: 0;
   box-sizing: inherit;
-  font: inherit;
+  font-family: BrandonText,Helvetica Neue,Helvetica,Arial,sans-serif;
   text-decoration: inherit;
   text-align: inherit;
   color: inherit;

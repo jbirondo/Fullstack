@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {Link} from "react-router-dom"
 import RestaurantIndexList from "./restaurant_index_list"
 class RestaurantIndex extends React.Component {
   constructor(props) {
@@ -46,26 +45,33 @@ class RestaurantIndex extends React.Component {
       } 
     })
     return(
-      <div>
+      <div className="restaurant-index-container">
         <div className="restaurant-index-header">Restaurants in the Gryffindor neighborhood
+          <hr />
           <RestaurantIndexList restaurants={gryff}></RestaurantIndexList>
         </div>
         <div className="restaurant-index-header">Restaurants in the Hufflepuff neighborhood
+          <hr />
           <RestaurantIndexList restaurants={huffle}></RestaurantIndexList>
         </div>
         <div className="restaurant-index-header">Restaurants in the Slytherin neighborhood
+          <hr />
           <RestaurantIndexList restaurants={slyth}></RestaurantIndexList>
         </div>
         <div className="restaurant-index-header">Restaurants in the Ravenclaw neighborhood
+          <hr />
           <RestaurantIndexList restaurants={raven}></RestaurantIndexList>
         </div>
         <div className="restaurant-index-header">Family Style restaurants in your area
+          <hr />
           <RestaurantIndexList restaurants={familyStyle}></RestaurantIndexList>
         </div>
         <div className="restaurant-index-header">Casual Dining restaurants in your area
+          <hr />
           <RestaurantIndexList restaurants={casualDining}></RestaurantIndexList>
         </div>
         <div className="restaurant-index-header">Fine Dining restaurants in your area
+          <hr />
           <RestaurantIndexList restaurants={fineDining}></RestaurantIndexList>
         </div>
       </div>
