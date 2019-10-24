@@ -11,6 +11,16 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 24px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.restaurant-index-li:first-child {
+    padding-left: 0%;
+}
+
+.restaurant-index-li:last-child {
+    padding-right: 0%;
 }
 
 .restaurant-index-ul {
@@ -41,4 +51,14 @@
 
 .restaurant-index-list-container {
     display: flex;
+}
+
+.restaurant-index-info{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    width: 236px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
 }

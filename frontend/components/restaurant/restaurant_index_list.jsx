@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
+import RestaurantRating from "./restaurant_rating"
 class RestaurantIndexList extends React.Component {
     constructor(props) {
         super(props)
@@ -17,6 +18,7 @@ class RestaurantIndexList extends React.Component {
     //     console.log(prevState)
     // }
 
+
     render() {
         const eles = this.window(this.props.restaurants)
         if (this.state.pos1 == 0 && this.props.restaurants.length > 4) {
@@ -27,8 +29,9 @@ class RestaurantIndexList extends React.Component {
                             <li className="restaurant-index-li" key={restaurant.id}>
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
-                                    <div>{restaurant.name}</div>
-                                    <div>{restaurant.style}</div>
+                                    <div className="restaurant-index-name">{restaurant.name}</div>
+                                    <RestaurantRating reviews={restaurant.reviews}></RestaurantRating>
+                                    <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                 </Link>
                             </li>)}
                     </ul>
@@ -52,8 +55,8 @@ class RestaurantIndexList extends React.Component {
                             <li className="restaurant-index-li" key={restaurant.id}>
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
-                                    <div>{restaurant.name}</div>
-                                    <div>{restaurant.style}</div>
+                                    <div className="restaurant-index-name">{restaurant.name}</div>
+                                    <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                 </Link>
                             </li>)}
                     </ul>
@@ -77,8 +80,8 @@ class RestaurantIndexList extends React.Component {
                             <li className="restaurant-index-li" key={restaurant.id}>
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
-                                    <div>{restaurant.name}</div>
-                                    <div>{restaurant.style}</div>
+                                    <div className="restaurant-index-name">{restaurant.name}</div>
+                                    <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                 </Link>
                             </li>)}
                     </ul>
@@ -93,8 +96,8 @@ class RestaurantIndexList extends React.Component {
                             <li className="restaurant-index-li" key={restaurant.id}>
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
-                                    <div>{restaurant.name}</div>
-                                    <div>{restaurant.style}</div>
+                                    <div className="restaurant-index-name">{restaurant.name}</div>
+                                    <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                 </Link>
                             </li>)}
                     </ul>
