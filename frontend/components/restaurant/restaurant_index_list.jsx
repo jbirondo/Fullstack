@@ -118,11 +118,13 @@ class RestaurantIndexList extends React.Component {
                             <li className="restaurant-index-li" key={restaurant.id}>
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
-                                    <div className="restaurant-index-name">{restaurant.name}</div>
-                                    <div className="rating-row">
-                                        <RestaurantRating rating={this.avgRating(restaurant.reviews)}></RestaurantRating>
+                                     <div className="restaurant-index-nameplate">
+                                        <div className="restaurant-index-name">{restaurant.name}</div>
+                                        <div className="rating-row">
+                                            <RestaurantRating rating={this.avgRating(restaurant.reviews)}></RestaurantRating>
+                                        </div>
+                                        <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                     </div>
-                                    <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                 </Link>
                             </li>)}
                     </ul>
