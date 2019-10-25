@@ -31,27 +31,30 @@
 .restaurant-index-splash > figure {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 368px;
 }
 
 .restaurant-index-splash > figure:nth-child(1) { 
     background-image: url(https://resizer.otstatic.com/v2/photos/wide-huge/25161502.jpg); 
     background-size: cover;
-    animation:fade 8s infinite;
-    -webkit-animation:fade 8s infinite;
+    background-position: center center;
+    animation:fade 18s infinite;
+    -webkit-animation:fade 18s infinite;
 }
  
 .restaurant-index-splash > figure:nth-child(2) {
     background-image: url(https://resizer.otstatic.com/v2/photos/wide-huge/25160669.jpg);
     background-size: cover;
-    animation:fade2 8s infinite;
-    -webkit-animation:fade2 8s infinite;
+    background-position: center center;
+    animation:fade2 18s infinite;
+    -webkit-animation:fade2 18s infinite;
 }
 .restaurant-index-splash > figure:nth-child(3) {
     background-image: url(https://resizer.otstatic.com/v2/photos/wide-huge/25160340.jpg);
     background-size: cover;
-    animation:fade3 8s infinite;
-    -webkit-animation:fade3 8s infinite;
+    background-position: center center;
+    animation:fade3 18s infinite;
+    -webkit-animation:fade3 18s infinite;
 }
 
 @keyframes fade {
