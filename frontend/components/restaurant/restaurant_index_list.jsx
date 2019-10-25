@@ -37,18 +37,20 @@ class RestaurantIndexList extends React.Component {
                             <li className="restaurant-index-li" key={restaurant.id}>
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
-                                    <div className="restaurant-index-name">{restaurant.name}</div>
-                                    <div className="rating-row">
-                                        <RestaurantRating rating={this.avgRating(restaurant.reviews)}></RestaurantRating>
+                                    <div className="restaurant-index-nameplate">
+                                        <div className="restaurant-index-name">{restaurant.name}</div>
+                                        <div className="rating-row">
+                                            <RestaurantRating rating={this.avgRating(restaurant.reviews)}></RestaurantRating>
+                                        </div>
+                                        <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                     </div>
-                                    <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                 </Link>
                             </li>)}
                     </ul>
                     <button
                         className="restaurant-index-ul-increase-button"
                         onClick={() => this.setState({ pos1: this.state.pos1 + 4, pos2: this.state.pos2 + 4 })}
-                    >+
+                    >▷
                     </button>
                 </div>
             )
@@ -58,25 +60,27 @@ class RestaurantIndexList extends React.Component {
                     <button
                         className="restaurant-index-ul-decrease-button"
                         onClick={() => this.setState({ pos1: this.state.pos1 - 4, pos2: this.state.pos2 - 4 })}
-                    >-
+                    >◁
                     </button>
                     <ul className="restaurant-index-ul">
                         {eles.map(restaurant =>
                             <li className="restaurant-index-li" key={restaurant.id}>
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
-                                    <div className="restaurant-index-name">{restaurant.name}</div>
-                                    <div className="rating-row">
-                                        <RestaurantRating rating={this.avgRating(restaurant.reviews)}></RestaurantRating>
+                                    <div className="restaurant-index-nameplate">
+                                        <div className="restaurant-index-name">{restaurant.name}</div>
+                                        <div className="rating-row">
+                                            <RestaurantRating rating={this.avgRating(restaurant.reviews)}></RestaurantRating>
+                                        </div>
+                                        <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                     </div>
-                                    <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                 </Link>
                             </li>)}
                     </ul>
                     <button
                         className="restaurant-index-ul-increase-button"
                         onClick={() => this.setState({ pos1: this.state.pos1 + 4, pos2: this.state.pos2 + 4 })}
-                    >+
+                    >▷
                     </button>
                 </div>
             )
@@ -86,18 +90,20 @@ class RestaurantIndexList extends React.Component {
                     <button
                         className="restaurant-index-ul-decrease-button"
                         onClick={() => this.setState({ pos1: this.state.pos1 - 4, pos2: this.state.pos2 - 4 })}
-                    >-
+                    >◁
                     </button>
                     <ul className="restaurant-index-ul">
                         {eles.map(restaurant =>
                             <li className="restaurant-index-li" key={restaurant.id}>
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
-                                    <div className="restaurant-index-name">{restaurant.name}</div>
-                                    <div className="rating-row">
-                                        <RestaurantRating rating={this.avgRating(restaurant.reviews)}></RestaurantRating>
+                                    <div className="restaurant-index-nameplate">
+                                        <div className="restaurant-index-name">{restaurant.name}</div>
+                                        <div className="rating-row">
+                                            <RestaurantRating rating={this.avgRating(restaurant.reviews)}></RestaurantRating>
+                                        </div>
+                                        <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                     </div>
-                                    <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                 </Link>
                             </li>)}
                     </ul>

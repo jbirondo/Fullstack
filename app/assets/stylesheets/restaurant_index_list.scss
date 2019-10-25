@@ -17,6 +17,10 @@
     border-radius: 5px;
 }
 
+.restaurant-index-li:hover {
+  box-shadow: 1px 1px 10px 0 rgba(0,0,0,.1);
+}
+
 .restaurant-index-li:first-child {
     padding-left: 0%;
 }
@@ -63,4 +67,8 @@
     overflow: hidden;
     text-overflow: ellipsis; 
     white-space: nowrap;
+}
+
+.restaurant-index-nameplate {
+    padding: 3%;
 }

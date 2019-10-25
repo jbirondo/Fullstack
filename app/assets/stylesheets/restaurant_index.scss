@@ -2,7 +2,7 @@
     justify-content: center;
     // text-align: center;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: normal;
     line-height: 32px;
 }
 .restaurant-index-container {
@@ -15,6 +15,7 @@
 .restaurant-index-splash {
     width: 100%;
     height: 368px;
+    margin-bottom: 3%;
 }
 .restaurant-index-splash > figure {
     color: transparent;
