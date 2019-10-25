@@ -46,6 +46,11 @@ class RestaurantIndex extends React.Component {
     })
     return(
       <div className="restaurant-index-container">
+        <div className="restaurant-index-splash">
+          <figure></figure>
+          <figure></figure>
+          <figure></figure>
+        </div>
         <div className="restaurant-index-header">Restaurants in the Gryffindor neighborhood
           <hr />
           <RestaurantIndexList restaurants={gryff}></RestaurantIndexList>
