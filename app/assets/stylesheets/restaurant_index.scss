@@ -17,19 +17,11 @@
     height: 368px;
     margin-bottom: 3%;
 }
-.restaurant-index-splash > figure {
-    color: transparent;
-    height: 368px;
-    left: 0px;
-    opacity: 0;
-    position: relative;
-    top: 0px;
-    width: 100%;
-    z-index: 0;
-    margin: 4% 0 0 0;
-}
 
 .restaurant-index-splash > figure {
+    top: 0px;
+    z-index: 0;
+    margin: 4% 0 0 0;
     position: absolute;
     width: 100%;
     height: 368px;
