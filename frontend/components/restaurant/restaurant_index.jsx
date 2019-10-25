@@ -44,43 +44,52 @@ class RestaurantIndex extends React.Component {
         familyStyle.push(restaurant)
       } 
     })
-    return(
+    return (
       <div className="restaurant-index-container">
         <div className="restaurant-index-splash">
           <figure></figure>
           <figure></figure>
           <figure></figure>
         </div>
-        <div className="restaurant-index-header">Restaurants in the Gryffindor neighborhood
-          <hr />
+        <div className="restaurant-index-ul-container">
+          <div className="restaurant-index-header">
+            Restaurants in the Gryffindor neighborhood
+          </div>
+          <hr></hr>
           <RestaurantIndexList restaurants={gryff}></RestaurantIndexList>
-        </div>
-        <div className="restaurant-index-header">Restaurants in the Hufflepuff neighborhood
-          <hr />
+          <div className="restaurant-index-header">
+            Restaurants in the Hufflepuff neighborhood
+          </div>
+          <hr></hr>
           <RestaurantIndexList restaurants={huffle}></RestaurantIndexList>
-        </div>
-        <div className="restaurant-index-header">Restaurants in the Slytherin neighborhood
-          <hr />
+          <div className="restaurant-index-header">
+            Restaurants in the Slytherin neighborhood
+          </div>
+          <hr></hr>
           <RestaurantIndexList restaurants={slyth}></RestaurantIndexList>
-        </div>
-        <div className="restaurant-index-header">Restaurants in the Ravenclaw neighborhood
-          <hr />
+          <div className="restaurant-index-header">
+            Restaurants in the Ravenclaw neighborhood
+          </div>
+          <hr></hr>
           <RestaurantIndexList restaurants={raven}></RestaurantIndexList>
-        </div>
-        <div className="restaurant-index-header">Family Style restaurants in your area
-          <hr />
+          <div className="restaurant-index-header">
+            Family Style restaurants in your area
+          </div>
+          <hr></hr>
           <RestaurantIndexList restaurants={familyStyle}></RestaurantIndexList>
-        </div>
-        <div className="restaurant-index-header">Casual Dining restaurants in your area
-          <hr />
+          <div className="restaurant-index-header">
+            Casual Dining restaurants in your area
+          </div>
+          <hr></hr>
           <RestaurantIndexList restaurants={casualDining}></RestaurantIndexList>
-        </div>
-        <div className="restaurant-index-header">Fine Dining restaurants in your area
-          <hr />
+          <div className="restaurant-index-header">
+            Fine Dining restaurants in your area
+          </div>
+          <hr></hr>
           <RestaurantIndexList restaurants={fineDining}></RestaurantIndexList>
         </div>
       </div>
-    )
+    );
   }
 }
 

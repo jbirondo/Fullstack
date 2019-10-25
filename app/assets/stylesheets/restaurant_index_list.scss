@@ -58,7 +58,7 @@
 
 .restaurant-index-ul-increase-button {
     height: 40px;
-    width: 40px;
+    min-width: 40px;
     margin-top: 12.5%;
     margin-left: -2.4%;
     z-index: 2;
@@ -67,7 +67,7 @@
 
 .restaurant-index-ul-decrease-button {
     height: 40px;
-    width: 40px;
+    min-width: 40px;
     margin-top: 12.5%;
     margin-right: -2.4%;
     z-index: 2;

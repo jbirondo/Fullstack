@@ -1,2 +1,2 @@
 Check it out: 
-https://opentableclone.herokuapp.com/#/
+https://tableopen.herokuapp.com/#/
