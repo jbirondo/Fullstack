@@ -1,7 +1,6 @@
 .restaurant-index-img {
     height: 132px;
     width: 236px;
-    overflow-block: hidden;
 }
 
 .restaurant-index-li {
@@ -33,8 +32,12 @@
 } 
 
 .restaurant-index-img:hover {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    -webkit-transform: scale(1.01);
+    transform: scale(1.01);
+    height: 132px;
+    width: 236px;
+    overflow: hidden;
+
 }
 
 .restaurant-index-li:first-child {
