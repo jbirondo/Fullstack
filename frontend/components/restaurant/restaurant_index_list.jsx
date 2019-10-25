@@ -6,7 +6,7 @@ class RestaurantIndexList extends React.Component {
         super(props)
         this.state = {
             pos1: 0,
-            pos2: 4
+            pos2: 4,
         }
     }
 
@@ -18,6 +18,14 @@ class RestaurantIndexList extends React.Component {
     //     console.log(prevState)
     // }
 
+    avgRating(reviewsArr) {
+        let counter = 0
+        reviewsArr.forEach(review => {
+            counter = counter + review.rating
+        })
+        // debugger
+        return Math.floor(counter / reviewsArr.length)
+    }
 
     render() {
         const eles = this.window(this.props.restaurants)
@@ -30,7 +38,9 @@ class RestaurantIndexList extends React.Component {
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
                                     <div className="restaurant-index-name">{restaurant.name}</div>
-                                    <RestaurantRating reviews={restaurant.reviews}></RestaurantRating>
+                                    <div className="rating-row">
+                                        <RestaurantRating rating={this.avgRating(restaurant.reviews)}></RestaurantRating>
+                                    </div>
                                     <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                 </Link>
                             </li>)}
@@ -56,6 +66,9 @@ class RestaurantIndexList extends React.Component {
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
                                     <div className="restaurant-index-name">{restaurant.name}</div>
+                                    <div className="rating-row">
+                                        <RestaurantRating rating={this.avgRating(restaurant.reviews)}></RestaurantRating>
+                                    </div>
                                     <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                 </Link>
                             </li>)}
@@ -81,6 +94,9 @@ class RestaurantIndexList extends React.Component {
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
                                     <div className="restaurant-index-name">{restaurant.name}</div>
+                                    <div className="rating-row">
+                                        <RestaurantRating rating={this.avgRating(restaurant.reviews)}></RestaurantRating>
+                                    </div>
                                     <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                 </Link>
                             </li>)}
@@ -97,6 +113,9 @@ class RestaurantIndexList extends React.Component {
                                 <Link className="restaurant-index-link" to={`/restaurants/${restaurant.id}`}>
                                     <img className="restaurant-index-img" src={restaurant.photoUrls[0]} />
                                     <div className="restaurant-index-name">{restaurant.name}</div>
+                                    <div className="rating-row">
+                                        <RestaurantRating rating={this.avgRating(restaurant.reviews)}></RestaurantRating>
+                                    </div>
                                     <div className="restaurant-index-info">{restaurant.style} • {restaurant.dress_code}</div>
                                 </Link>
                             </li>)}
