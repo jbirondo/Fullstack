@@ -31,7 +31,7 @@ amazon_prod:
 # Remember not to checkin your GCS keyfile to a repository
 # google:
 #   service: GCS
-#   project: your_project
+#   project: your_project527690
 #   credentials: <%= Rails.root.join("path/to/gcs.keyfile") %>
 #   bucket: your_own_bucket
 
