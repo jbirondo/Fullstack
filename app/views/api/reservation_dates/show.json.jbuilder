@@ -1,0 +1,1 @@
+json.partial! 'api/reservation_dates/reservation_date', reservation_date: @reservation_date 
