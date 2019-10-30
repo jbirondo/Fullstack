@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
         };
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoUser = this.demoUser.bind(this)
     }
 
     handleSubmit(e) {
@@ -32,6 +33,11 @@ class SessionForm extends React.Component {
                 {this.props.errors.map((error, i) => (<li className="session-form-error-list-item" key={i}>{error}</li>))}
             </ul>)
         }
+    }
+
+    demoUser(event) {
+        event.preventDefault();
+        this.props.login({ email: "demo", password: "hunter2" }).then(this.props.closeModal);
     }
 
     render() {
@@ -62,6 +68,7 @@ class SessionForm extends React.Component {
                 </label>
                 <br/>
                 <button className="sign-in-button" onClick={this.handleSubmit}>{button}</button>
+                <button className="demo-sign-in-button" onClick={this.demoUser}>Demo Login</button>
                 <button className="alt-sign-in-button" onClick={() => this.props.openModal(path)}>{altTitle}</button>
             </div>
         )

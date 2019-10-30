@@ -19,7 +19,7 @@
   padding: 15px
 }
 
-.sign-in-button, .alt-sign-in-button {
+.sign-in-button, .alt-sign-in-button, .demo-sign-in-button {
   font: BrandonText;
   border-radius: 8px;
   font-size: 19.2px;
@@ -35,6 +35,15 @@
   width: 90%;
   height: 30px;
   border-radius: 2px;
+}
+
+.demo-sign-in-button {
+
+  width: 92%;
+  justify-content: center;
+  color: white;
+  background-color: #237B98;
+  margin-top: 13px;
 }
 
 .sign-in-button {
