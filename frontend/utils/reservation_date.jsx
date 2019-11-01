@@ -12,7 +12,13 @@ export const getReservationDates = () =>
 
 export const createReservationDate = (date) => 
     $.ajax({
-    method: "POST",
-    url: "api/reservation_dates/",
-    data: {date}
-})
+        method: "POST",
+        url: "api/reservation_dates/",
+        data: {date}
+    })
+
+export const deleteReservationDate = (id) =>
+    $.ajax({
+        method: "DELETE",
+        url: `api/reservation_dates/${id}`
+    })

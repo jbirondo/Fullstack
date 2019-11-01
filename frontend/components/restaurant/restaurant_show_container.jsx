@@ -1,6 +1,7 @@
 import { requestRestaurant } from '../../actions/restaurant'
 import { connect } from 'react-redux'
 import RestaurantShow from './restaurant_show'
+import { createReservationDate } from "../../actions/reservation_date"
 
 const mapStateToProps = (state, ownProps) => {
     // debugger
@@ -13,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    requestRestaurant: id => dispatch(requestRestaurant(id))
+    requestRestaurant: id => dispatch(requestRestaurant(id)),
+    createReservationDate: reservationDate => dispatch(createReservationDate(reservationDate))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RestaurantShow);

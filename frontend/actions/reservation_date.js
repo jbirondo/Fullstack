@@ -21,10 +21,9 @@ export const receiveReservationDate = payload => {
 export const createReservationDate = reservationDate => dispatch => {
     return ReservationDateAPIUtils.createReservationDate(reservationDate)
         .then(reservationDate => (
-            dispatch({
-                type: CREATE_RESERVATION_DATE,
-                reservationDate
-        })))
+            dispatch(
+                receiveReservationDate(reservationDate)
+        )))
 }
 
 export const requestAllReservationDates = () => dispatch => (
