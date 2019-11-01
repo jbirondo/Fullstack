@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import RestaurantRating from "./restaurant_rating"
+import RestaurRestaurantShowReseverationDate from "./restaurant_show_reservation_dates"
+import RestaurantShowReseverationDate from './restaurant_show_reservation_dates';
 
 class RestaurantShow extends React.Component {
   constructor(props) {
@@ -65,6 +67,7 @@ class RestaurantShow extends React.Component {
         <div className="main-component">
           <div className="main-right-component">
             <hr></hr>
+            <RestaurantShowReseverationDate restaurantId={this.props.restaurant.id}></RestaurantShowReseverationDate>
             <div className="main-address-container">
               🗺 Address
               <div className="main-address">
