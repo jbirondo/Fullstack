@@ -10,3 +10,10 @@ json.reviews do
         json.rating review.rating
     end
 end
+
+json.reservation_dates do
+    json.array! restaurant.reservation_dates do |reservation_date|
+        json.id reservation_date.id
+        json.date reservation_date.date
+    end
+end

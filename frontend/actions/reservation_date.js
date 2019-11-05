@@ -2,7 +2,7 @@ import * as ReservationDateAPIUtils from "../utils/reservation_date"
 
 export const RECEIVE_RESERVATION_DATE = "RECEIVE_RESERVATION_DATE";
 export const RECEIVE_RESERVATION_DATES = "RECEIVE_RESERVATION_DATES";
-export const CREATE_RESERVATION_DATE = "CREATE_RESERVATION_DATE";
+// export const CREATE_RESERVATION_DATE = "CREATE_RESERVATION_DATE";
 
 export const receiveReservationDates = reservationDates => {
     return ({
@@ -20,10 +20,12 @@ export const receiveReservationDate = payload => {
 
 export const createReservationDate = reservationDate => dispatch => {
     return ReservationDateAPIUtils.createReservationDate(reservationDate)
-        .then(reservationDate => (
+        .then(reservationDate => {
             dispatch(
                 receiveReservationDate(reservationDate)
-        )))
+            )
+            return reservationDate
+         })
 }
 
 export const requestAllReservationDates = () => dispatch => (

@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import RestaurantRating from "./restaurant_rating"
-import RestaurRestaurantShowReseverationDate from "./restaurant_show_reservation_dates"
-import RestaurantShowReseverationDate from './restaurant_show_reservation_dates';
 
 class RestaurantShow extends React.Component {
   constructor(props) {
@@ -31,8 +29,7 @@ class RestaurantShow extends React.Component {
   }
 
   render() {
-    // debugger
-    console.log(this);
+    // console.log(this);
     if (!this.props.restaurant) {
       return <div className="restaurant-show-loading">Loading...</div>;
     }
@@ -67,7 +64,6 @@ class RestaurantShow extends React.Component {
         <div className="main-component">
           <div className="main-right-component">
             <hr></hr>
-            <RestaurantShowReseverationDate restaurantId={this.props.restaurant.id}></RestaurantShowReseverationDate>
             <div className="main-address-container">
               🗺 Address
               <div className="main-address">
@@ -114,7 +110,9 @@ class RestaurantShow extends React.Component {
           <div className="main-left-component">
             <hr></hr>
             <div className="main-name">{this.props.restaurant.name}</div>
-            <RestaurantRating rating={this.avgRating(this.props.restaurant.reviews)}/>
+            <RestaurantRating
+              rating={this.avgRating(this.props.restaurant.reviews)}
+            />
             <hr></hr>
             <div className="main-description">
               {this.props.restaurant.description}
