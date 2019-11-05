@@ -13,6 +13,7 @@ export const postReservation = (reservation) => (
     })
 )
 
+
 export const updateReservation = (reservation) => (
     $.ajax({
         method: "PATCH",
