@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import RestaurantRating from "./restaurant_rating"
+import ReservationCreate from "../reservations/reservation_create"
+import { postReservation } from "../../actions/reservation";
 
 class RestaurantShow extends React.Component {
   constructor(props) {
@@ -28,6 +30,21 @@ class RestaurantShow extends React.Component {
     return Math.floor(counter / reviewsArr.length);
   }
 
+  reservation(){
+    if (this.props.userId == null) {
+      return (
+        <div>Hello</div>
+      )
+    } else {
+      return (
+        <ReservationCreate 
+          userId={this.props.userId}
+          restaurantId={this.props.restaurantId}
+        ></ReservationCreate>
+      )
+    }
+  }
+
   render() {
     // console.log(this);
     if (!this.props.restaurant) {
@@ -44,7 +61,7 @@ class RestaurantShow extends React.Component {
         </li>
       ));
     }
-    // debugger
+
     return (
       <div>
         <div className="upper-background">
@@ -63,6 +80,8 @@ class RestaurantShow extends React.Component {
         </div>
         <div className="main-component">
           <div className="main-right-component">
+            <hr></hr>
+            {this.reservation()}
             <hr></hr>
             <div className="main-address-container">
               🗺 Address

@@ -51,7 +51,6 @@ class SessionForm extends React.Component {
             altTitle = "No account? Please sign up"
             button = "Sign In"
         };
-        // debugger
         return (
             <div className="session-form">
                 {this.errors()}
