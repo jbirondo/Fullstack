@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import RestaurantRating from "./restaurant_rating"
 import ReservationCreate from "../reservations/reservation_create"
-import { postReservation } from "../../actions/reservation";
+// import { postReservation } from "../../actions/reservation";
 
 class RestaurantShow extends React.Component {
   constructor(props) {
@@ -33,8 +33,13 @@ class RestaurantShow extends React.Component {
   reservation(){
     if (this.props.userId == null) {
       return (
-        <div>Hello</div>
-      )
+        <button
+          className="log-in-to-reserve"
+          onClick={() => this.props.openModal("login")}
+        >
+          Log in to reserve a table now
+        </button>
+      );
     } else {
       return (
         <ReservationCreate 

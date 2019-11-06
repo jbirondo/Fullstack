@@ -1,5 +1,6 @@
 import { requestRestaurant } from '../../actions/restaurant'
 import { connect } from 'react-redux'
+import { openModal } from "../../actions/modal";
 import RestaurantShow from './restaurant_show'
 
 
@@ -24,7 +25,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
 
     return {
-    requestRestaurant: id => dispatch(requestRestaurant(id))
+    requestRestaurant: id => dispatch(requestRestaurant(id)),
+    openModal: modal => dispatch(openModal(modal))
   }
 };
 
