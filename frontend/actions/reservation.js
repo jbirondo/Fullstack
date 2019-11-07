@@ -3,6 +3,7 @@ import * as ReserverationAPIUtils from "../utils/reservation"
 // export const RECEIVE_RESERVATIONS = "RECEIVE_RESERVATIONS"
 export const RECEIVE_RESERVATION = "RECEIVE_RESERVATION"
 export const REMOVE_RESERVATION = "REMOVE_RESERVATION"
+export const CREATE_RESERVATION = "CREATE_RESERVATION"
 
 const receiveReservation = (reservation) => ({
     reservation: reservation,

@@ -5,9 +5,9 @@ class ReservationCreate extends React.Component {
     super(props);
     this.state = {
       date: "",
-      partySize: "",
-      userId: this.props.userId,
-      restaurantId: this.props.restaurantId
+      party_size: "",
+      user_id: this.props.userId,
+      restaurant_id: this.props.restaurantId
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,7 +16,8 @@ class ReservationCreate extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const reservation = Object.assign({}, this.state);
-    this.props.createReservation(reservation);
+    // debugger
+    this.props.postReservation(reservation);
   }
 
   handleInput(type) {
@@ -34,8 +35,8 @@ class ReservationCreate extends React.Component {
             Party Size
             <input
               type="number"
-              onChange={this.handleInput("partySize")}
-              value={this.state.partySize}
+              onChange={this.handleInput("party_size")}
+              value={this.state.party_size}
             />
           </div>
           <div>

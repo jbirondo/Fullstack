@@ -1,4 +1,5 @@
 import { requestRestaurant } from '../../actions/restaurant'
+import { postReservation } from "../../actions/reservation"
 import { connect } from 'react-redux'
 import { openModal } from "../../actions/modal";
 import RestaurantShow from './restaurant_show'
@@ -26,7 +27,8 @@ const mapDispatchToProps = dispatch => {
 
     return {
     requestRestaurant: id => dispatch(requestRestaurant(id)),
-    openModal: modal => dispatch(openModal(modal))
+    openModal: modal => dispatch(openModal(modal)),
+    postReservation: reservation => dispatch(postReservation(reservation))
   }
 };
 

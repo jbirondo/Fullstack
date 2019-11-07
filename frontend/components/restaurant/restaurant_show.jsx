@@ -45,6 +45,7 @@ class RestaurantShow extends React.Component {
         <ReservationCreate 
           userId={this.props.userId}
           restaurantId={this.props.restaurantId}
+          postReservation={this.props.postReservation}
         ></ReservationCreate>
       )
     }
@@ -86,7 +87,9 @@ class RestaurantShow extends React.Component {
         <div className="main-component">
           <div className="main-right-component">
             <hr></hr>
-            {this.reservation()}
+            <div className="main-reservation">
+              {this.reservation()}
+            </div>
             <hr></hr>
             <div className="main-address-container">
               🗺 Address
