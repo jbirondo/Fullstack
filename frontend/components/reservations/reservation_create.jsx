@@ -16,6 +16,14 @@ class ReservationCreate extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const reservation = Object.assign({}, this.state);
+    console.log(reservation.date)
+    var count = 0;
+    for (var i = 0; i < this.props.restaurant.reservations.length; ++i) {
+      if (this.props.restaurant.reservations[i].date == reservation.date) {
+          count++;
+      }
+    }
+    console.log(count)
     // debugger
     this.props.postReservation(reservation);
   }

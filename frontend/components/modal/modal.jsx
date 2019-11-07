@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session/login_container';
 import SignupFormContainer from '../session/signup_container';
+import ReservationError from "../reservations/reservation_error"
 
 function Modal({modal, closeModal}) {
   if (!modal) {
@@ -15,6 +16,9 @@ function Modal({modal, closeModal}) {
       break;
     case 'signup': //restaurant-profile
       component = <SignupFormContainer />;
+      break;
+    case 'reservationError':
+      component = <ReservationError />;
       break;
     default:
       return null;
