@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import RestaurantRating from "./restaurant_rating"
 import ReservationCreate from "../reservations/reservation_create"
-// import { postReservation } from "../../actions/reservation";
 
 class RestaurantShow extends React.Component {
   constructor(props) {
@@ -52,7 +51,8 @@ class RestaurantShow extends React.Component {
   }
 
   render() {
-    // console.log(this);
+    console.log(this.props.restaurant);
+    console.log(this.props.user.reservations);
     if (!this.props.restaurant) {
       return <div className="restaurant-show-loading">Loading...</div>;
     }
