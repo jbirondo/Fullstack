@@ -8,7 +8,8 @@
     color: white;
     background-color: red;
     font-size: 14px;
-    margin-bottom: 4%;
+    margin-bottom: 5%;
+    margin-top: 5%;
 }
 
 .main-reservation {
@@ -23,6 +24,7 @@
     margin-bottom: 3%;
     box-shadow: 0 3px 20px rgba(0,0,0,.1);
     padding: 15px;
+    margin-left: -9%
 }
 
 .reservation-create-header {
@@ -104,4 +106,10 @@ button:focus {
     font-weight: 500;
     border-radius: 2px;
     margin-left: 15px;
+}
+
+.reservation-check-true{
+    color: green;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }

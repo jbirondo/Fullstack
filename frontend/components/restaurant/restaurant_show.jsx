@@ -29,6 +29,15 @@ class RestaurantShow extends React.Component {
     return Math.floor(counter / reviewsArr.length);
   }
 
+  reservationCheck() {
+    for (let i = 0; i < this.props.user.reservations.length; i++){
+      // debugger
+      if (this.props.user.reservations[i].restaurant.id == this.props.restaurantId){
+        return this.props.user.reservations[i]
+      }
+    }
+  }
+
   reservation(){
     if (this.props.userId == null) {
       return (
@@ -39,6 +48,13 @@ class RestaurantShow extends React.Component {
           Log in to reserve a table now
         </button>
       );
+    }
+    if (this.reservationCheck()) {
+      return (
+        <div className="reservation-check-true">
+          You have a reservation for {this.reservationCheck().party_size} on {this.reservationCheck().date} at this restaurant
+        </div>
+      )
     } else {
       return (
         <div className="main-reservation">
@@ -94,7 +110,6 @@ class RestaurantShow extends React.Component {
         </div>
         <div className="main-component">
           <div className="main-right-component">
-            <hr></hr>
             {this.reservation()}
             <hr></hr>
             <div className="main-address-container">
@@ -141,7 +156,6 @@ class RestaurantShow extends React.Component {
             <hr></hr>
           </div>
           <div className="main-left-component">
-            <hr></hr>
             <div className="main-name">{this.props.restaurant.name}</div>
             <RestaurantRating
               rating={this.avgRating(this.props.restaurant.reviews)}

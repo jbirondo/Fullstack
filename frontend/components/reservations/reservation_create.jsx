@@ -36,10 +36,6 @@ class ReservationCreate extends React.Component {
     }
   }
 
-  userHasReservation(user) {
-
-  }
-
   handleInput(type) {
     return e => {
       this.setState({ [type]: e.currentTarget.value });
@@ -58,7 +54,6 @@ class ReservationCreate extends React.Component {
                 <input
                   className="party-size-input"
                   type="number"
-                  placeholder="2"
                   onChange={this.handleInput("party_size")}
                   value={this.state.party_size}
                 />
