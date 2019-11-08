@@ -41,13 +41,16 @@ class RestaurantShow extends React.Component {
       );
     } else {
       return (
-        <ReservationCreate 
-          userId={this.props.userId}
-          restaurantId={this.props.restaurantId}
-          postReservation={this.props.postReservation}
-          restaurant={this.props.restaurant}
-        ></ReservationCreate>
-      )
+        <div className="main-reservation">
+          <ReservationCreate
+            userId={this.props.userId}
+            restaurantId={this.props.restaurantId}
+            postReservation={this.props.postReservation}
+            restaurant={this.props.restaurant}
+            user={this.props.user}
+          ></ReservationCreate>
+        </div>
+      );
     }
   }
 
@@ -84,13 +87,15 @@ class RestaurantShow extends React.Component {
             className="header-photo"
             src={this.props.restaurant.photoUrls[4]}
           />
+          <img
+            className="header-photo"
+            src={this.props.restaurant.photoUrls[6]}
+          />
         </div>
         <div className="main-component">
           <div className="main-right-component">
             <hr></hr>
-            <div className="main-reservation">
-              {this.reservation()}
-            </div>
+            {this.reservation()}
             <hr></hr>
             <div className="main-address-container">
               🗺 Address

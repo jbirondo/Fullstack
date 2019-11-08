@@ -7,8 +7,9 @@ class ReservationCreate extends React.Component {
       date: "",
       party_size: "",
       user_id: this.props.userId,
-      restaurant_id: this.props.restaurantId
+      restaurant_id: this.props.restaurantId,
     };
+    this.errors = ""
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -23,9 +24,20 @@ class ReservationCreate extends React.Component {
           count++;
       }
     }
-    console.log(count)
-    // debugger
-    this.props.postReservation(reservation);
+
+
+    if (count > this.props.restaurant.capacity){
+        this.errors = "Too many reservations for this date, please choose another date"
+    } else {
+        this.props.postReservation(reservation)
+        if (this.errors) {
+            this.errors = ""
+        }
+    }
+  }
+
+  userHasReservation(user) {
+
   }
 
   handleInput(type) {
@@ -35,26 +47,39 @@ class ReservationCreate extends React.Component {
   }
 
   render() {
-    //   debugger
       return (
-        <div>
-          <div>Make a reservation</div>
-          <div>
-            Party Size
-            <input
-              type="number"
-              onChange={this.handleInput("party_size")}
-              value={this.state.party_size}
-            />
-          </div>
-          <div>
-            Date
-            <input type="date"
-              onChange={this.handleInput("date")}
-              value={this.state.date}
-            />
-          </div>
-          <button onClick={this.handleSubmit}>Book a table</button>
+        <div className="reservation-create-container">
+            <div>{this.errors}</div>
+            <div className="reservation-create-header">Make a reservation</div>
+            <div className="party-size-and-date-container">
+              <div className="reservation-create-party-size">
+                Party Size
+                <br></br>
+                <input
+                  className="party-size-input"
+                  type="number"
+                  placeholder="2"
+                  onChange={this.handleInput("party_size")}
+                  value={this.state.party_size}
+                />
+              </div>
+              <div className="reservation-create-date">
+                Date
+                <br></br>
+                <input
+                  className="date-input"
+                  type="date"
+                  onChange={this.handleInput("date")}
+                  value={this.state.date}
+                />
+              </div>
+            </div>
+            <button
+              onClick={this.handleSubmit}
+              className="reservation-create-button"
+            >
+              Book a table
+            </button>
         </div>
       );
   }
