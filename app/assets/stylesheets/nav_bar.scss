@@ -1,5 +1,6 @@
 .nav-bar {
-    display: inline-block;
+    // display: inline-block;
+    display: inline-flex;
     box-sizing: border-box;
     padding: 0px ;
     width: 100%;
@@ -64,4 +65,8 @@
     content: "";
     display: block;
     clear: both;
+}
+
+.social-links a {
+    padding: 1%;
 }
