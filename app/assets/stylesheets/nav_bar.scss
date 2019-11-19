@@ -5,6 +5,7 @@
     padding: 0px ;
     width: 100%;
     height: 40px;
+    justify-content: space-between;
 }
 
 .nav-sign-up-button {
@@ -31,10 +32,12 @@
     text-decoration: none;
     float: left;
     background-image: url(https://media.otstatic.com/img/logo-fb47603a815bb1cf3e89400ba14587f1.png);
+    // background-image: require("./logo.png");
     color: rgba(0,0,0,0);
     display: inline-block;
-    width: 9.75rem;
+    width: 14.65rem;
     height: 2.30rem;
+    margin-right: 24%;
 }
 
 .nav-bar-welcome-message {
@@ -62,11 +65,30 @@
 }
 
 .clearfix:after {
-    content: "";
+    // content: "";
     display: block;
     clear: both;
 }
 
 .social-links a {
     padding: 1%;
+}
+
+.social-links a:nth-child(2) {
+    margin: 0% 5%;
+}
+
+.social-links {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.left-nav-bar {
+    display: flex;
+    flex-direction: row;
+}
+
+.logo {
+    height: 100px;
+    width: 100px;
 }
