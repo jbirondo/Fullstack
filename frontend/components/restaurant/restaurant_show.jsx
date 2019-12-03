@@ -111,7 +111,7 @@ class RestaurantShow extends React.Component {
         <div className="main-component">
           <div className="main-right-component">
             {this.reservation()}
-            <hr></hr>
+            
             <div className="main-address-container">
               🗺 Address
               <div className="main-address">
@@ -119,7 +119,7 @@ class RestaurantShow extends React.Component {
                 {this.props.restaurant.address}{" "}
               </div>
             </div>
-            <hr></hr>
+            
             {/* <div className="main-capacity-container">Capacity: 
                             <div className="main-capacity">{this.props.restaurant.capacity}</div>
                         </div> */}
@@ -129,38 +129,38 @@ class RestaurantShow extends React.Component {
                 {this.props.restaurant.neighborhood}
               </div>
             </div>
-            <hr></hr>
+            
             <div className="main-style-container">
               🍽 Cuisine
               <div className="main-style">{this.props.restaurant.style}</div>
             </div>
-            <hr></hr>
+            
             <div className="main-dining-style-container">
               🛎 Dining Style
               <div className="main-dining-style">
                 {this.props.restaurant.dining_style}
               </div>
             </div>
-            <hr></hr>
+            
             <div className="main-dress-code-container">
               👗 Dress Code
               <div className="main-dress-code">
                 {this.props.restaurant.dress_code}
               </div>
             </div>
-            <hr></hr>
+            
             <div className="main-chef-container">
               👨‍🍳 Executive Chef
               <div className="main-chef">{this.props.restaurant.chef}</div>
             </div>
-            <hr></hr>
+            
           </div>
           <div className="main-left-component">
             <div className="main-name">{this.props.restaurant.name}</div>
             <RestaurantRating
               rating={this.avgRating(this.props.restaurant.reviews)}
             />
-            <hr></hr>
+            
             <div className="main-description">
               {this.props.restaurant.description}
             </div>
