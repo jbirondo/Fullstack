@@ -18,7 +18,7 @@ export default () => (
         <header>
             <NavBarContainer />
         </header>
-        <hr></hr>
+        {/* <hr></hr> */}
         <Switch>
         <Route exact path="/" component={RestaurantIndexContainer} />
         <Route path="/restaurants/:restaurantId" component={RestaurantShowContainer} />
