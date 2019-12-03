@@ -48,5 +48,17 @@
 
 .main-address, .main-style, .main-neighborhood, .main-dining-style, .main-dress-code, .main-chef {
     margin-left: 25px;
-    font-weight: lighter;
+    // font-weight: lighter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.main-address-container, .main-style-container, .main-neighborhood-container, .main-dining-style-container, .main-dress-code-container, .main-chef-container {
+    margin-left: 25px;
+    // font-weight: lighter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    padding-top: 20px;
 }
