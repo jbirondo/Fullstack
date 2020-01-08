@@ -50,6 +50,7 @@ class RestaurantIndex extends React.Component {
           <figure></figure>
           <figure></figure>
           <figure></figure>
+          <div className="restaurant-index-splash-message">Hello</div>
         </div>
         <div className="restaurant-index-ul-container">
           <div className="restaurant-index-header">
