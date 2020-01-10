@@ -25,7 +25,6 @@ class RestaurantSearchList extends Component {
         let currentList = [];
         let newList = [];
         let restaurantArray = Object.values(this.props.restaurants)
-        debugger
         if (e.target.value !== "") {
             currentList = restaurantArray;
             newList = currentList.filter(restaurant => {
@@ -33,32 +32,40 @@ class RestaurantSearchList extends Component {
                 const filter = e.target.value.toLowerCase();
                 return lc.includes(filter);
             });
+            // debugger
         } else {
             newList = restaurantArray;
         }
         this.setState({
             list: newList
         });
+        debugger
     }
 
     render() {
-        return (
-            <div>
-                <input 
-                    type="text" 
-                    className="search-bar-input"
-                    onChange={this.handleChange}
-                    placeholder = "Search..."
-                />
-                {/* <ul>
-                    {this.state.list.map(restaurant => (
-                        <li key={restaurant}>
-                            {restaurant.name}
-                        </li>
-                    ))}
-                </ul> */}
-            </div>
-        )
+        if (this.state.list.length < 1) {
+            return (
+                <div></div>
+            )
+        } else {
+            return (
+                <div>
+                    <input 
+                        type="text" 
+                        className="search-bar-input"
+                        onChange={this.handleChange}
+                        placeholder = "Search..."
+                    />
+                    <ul>
+                        {this.state.list.map(restaurant => (
+                            <li key={restaurant}>
+                                {restaurant.name}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )
+        }
     }
 }
 
