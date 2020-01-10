@@ -50,7 +50,11 @@ class RestaurantSearchList extends Component {
                     placeholder = "Search..."
                 />
                 <ul>
-                    {}
+                    {this.state.list.map(restaurant => (
+                        <li key={restaurant}>
+                            {restaurant.name}
+                        </li>
+                    ))}
                 </ul>
             </div>
         )
