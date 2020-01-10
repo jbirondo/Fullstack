@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import RestaurantIndexList from "./restaurant_index_list"
+import RestaurantSearchList from "./restaurant_search_list"
 class RestaurantIndex extends React.Component {
   constructor(props) {
     super(props)
@@ -50,7 +51,9 @@ class RestaurantIndex extends React.Component {
           <figure></figure>
           <figure></figure>
           <figure></figure>
-          <div className="restaurant-index-splash-message">Find your table for any occasion</div>
+          <div className="restaurant-index-splash-message">Find your table for any occasion
+            <RestaurantSearchList restaurants={this.props.restaurants}></RestaurantSearchList>
+          </div>
         </div>
         <div className="restaurant-index-ul-container">
           <div className="restaurant-index-header">

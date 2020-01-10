@@ -6,7 +6,7 @@ class RestaurantSearchList extends Component {
         this.state = {
             list: []
         }
-        this.handleChange - this.handleChange.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     componentDidMount() {
@@ -24,16 +24,17 @@ class RestaurantSearchList extends Component {
     handleChange(e) {
         let currentList = [];
         let newList = [];
-
+        let restaurantArray = Object.values(this.props.restaurants)
+        debugger
         if (e.target.value !== "") {
-            currentList = this.props.items;
-            newList = currentList.filter(item => {
-                const lc = item.toLowerCase();
+            currentList = restaurantArray;
+            newList = currentList.filter(restaurant => {
+                const lc = restaurant.name.toLowerCase();
                 const filter = e.target.value.toLowerCase();
                 return lc.includes(filter);
             });
         } else {
-            newList = this.props.items;
+            newList = restaurantArray;
         }
         this.setState({
             list: newList
@@ -49,13 +50,13 @@ class RestaurantSearchList extends Component {
                     onChange={this.handleChange}
                     placeholder = "Search..."
                 />
-                <ul>
+                {/* <ul>
                     {this.state.list.map(restaurant => (
                         <li key={restaurant}>
                             {restaurant.name}
                         </li>
                     ))}
-                </ul>
+                </ul> */}
             </div>
         )
     }
