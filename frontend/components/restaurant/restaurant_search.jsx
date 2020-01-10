@@ -41,7 +41,19 @@ class RestaurantSearchList extends Component {
     }
 
     render() {
-
+        return (
+            <div>
+                <input 
+                    type="text" 
+                    className="search-bar-input"
+                    onChange={this.handleChange}
+                    placeholder = "Search..."
+                />
+                <ul>
+                    {}
+                </ul>
+            </div>
+        )
     }
 }
 
