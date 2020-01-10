@@ -20,6 +20,25 @@ class RestaurantSearchList extends Component {
         })
     }
 
+    handleChange(e) {
+        let currentList = [];
+        let newList = [];
+
+        if (e.target.value !== "") {
+            currentList = this.props.items;
+            newList = currentList.filter(item => {
+                const lc = item.toLowerCase();
+                const filter = e.target.value.toLowerCase();
+                return lc.includes(filter);
+            });
+        } else {
+            newList = this.props.items;
+        }
+        this.setState({
+            list: newList
+        });
+    }
+
     render() {
 
     }
