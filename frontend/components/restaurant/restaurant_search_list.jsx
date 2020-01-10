@@ -36,6 +36,11 @@ class RestaurantSearchList extends Component {
         } else {
             newList = restaurantArray;
         }
+        if (e.target.value === "") {
+            this.setState({
+                list: undefined
+            })
+        }
         this.setState({
             list: newList
         });
@@ -45,12 +50,14 @@ class RestaurantSearchList extends Component {
     render() {
         if (this.state.list === undefined) {
             return (
-                <input
-                    type="text"
-                    className="search-bar-input"
-                    onChange={this.handleChange}
-                    placeholder="Search..."
-                />
+                <div>
+                    <input
+                        type="text"
+                        className="search-bar-input"
+                        onChange={this.handleChange}
+                        placeholder="Search..."
+                    />
+                </div>
             )
         } else {
             return (
@@ -61,10 +68,10 @@ class RestaurantSearchList extends Component {
                         onChange={this.handleChange}
                         placeholder = "Search..."
                     />
-                    <ul>
+                    <ul className="restaurant-search-list">
                         {this.state.list.map(restaurant => (
                             <li key={restaurant.id}>
-                                {restaurant.name}
+                                {restaurant.name} : {restaurant.style} : {restaurant.address}
                             </li>
                         ))}
                     </ul>
