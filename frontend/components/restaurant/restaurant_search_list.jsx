@@ -39,13 +39,18 @@ class RestaurantSearchList extends Component {
         this.setState({
             list: newList
         });
-        debugger
+        // debugger
     }
 
     render() {
-        if (this.state.list.length < 1) {
+        if (this.state.list === undefined) {
             return (
-                <div></div>
+                <input
+                    type="text"
+                    className="search-bar-input"
+                    onChange={this.handleChange}
+                    placeholder="Search..."
+                />
             )
         } else {
             return (
@@ -58,7 +63,7 @@ class RestaurantSearchList extends Component {
                     />
                     <ul>
                         {this.state.list.map(restaurant => (
-                            <li key={restaurant}>
+                            <li key={restaurant.id}>
                                 {restaurant.name}
                             </li>
                         ))}
