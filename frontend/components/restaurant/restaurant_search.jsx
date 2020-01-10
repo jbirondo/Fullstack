@@ -6,6 +6,7 @@ class RestaurantSearchList extends Component {
         this.state = {
             list: []
         }
+        this.handleChange - this.handleChange.bind(this)
     }
 
     componentDidMount() {
