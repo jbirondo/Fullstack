@@ -71,7 +71,9 @@ class RestaurantSearchList extends Component {
                     <ul className="restaurant-search-list">
                         {this.state.list.map(restaurant => (
                             <li key={restaurant.id}>
+                                <Link to={`/restaurants/${restaurant.id}`}>
                                 {restaurant.name} : {restaurant.style} : {restaurant.address}
+                                </Link>
                             </li>
                         ))}
                     </ul>
