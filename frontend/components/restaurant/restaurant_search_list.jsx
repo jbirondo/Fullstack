@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Link } from "react-router-dom"
 class RestaurantSearchList extends Component {
     constructor(props) {
         super(props)
@@ -51,7 +51,7 @@ class RestaurantSearchList extends Component {
         if (this.state.list === undefined) {
             return (
                 <div>
-                    <input
+                    <input 
                         type="text"
                         className="search-bar-input"
                         onChange={this.handleChange}
