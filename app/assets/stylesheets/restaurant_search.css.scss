@@ -5,10 +5,16 @@
     color: grey;
     font-size: 1rem;
     list-style: none;
-    width: 244.1px;
+    width: 243.05px;
     padding-left: 0%;
     padding-bottom: 2%;
     margin-top: -3%;
+    border-radius: 0px 0px 4px 4px;;
+    -webkit-background-clip: padding-box; 
+    -moz-background-clip:    padding; 
+    background-clip:         padding-box;
+    border-left-color: gray;
+    margin-left: 1px ;
 }
 
 .search-bar-input {
@@ -21,6 +27,14 @@
     font-weight: 400;
     width: 200px;
     line-height: 1.43;
+    border-radius: 4px 4px 0px 0px;
+    -webkit-background-clip: padding-box; 
+    -moz-background-clip:    padding; 
+    background-clip:         padding-box;
+}
+
+.search-bar-input:focus {
+    outline: none;
 }
 
 .restaurant-search-list-li {
@@ -34,4 +48,9 @@
 .restaurant-search-list-li:hover {
     background-color: red;
     color: white;
+}
+
+.restaurant-search-list-header {
+    padding-top: 1%;
+    padding-bottom: 1%;
 }

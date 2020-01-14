@@ -62,14 +62,19 @@ class RestaurantSearchList extends Component {
         } else {
             return (
                 <div>
+                    <div>
                     <input 
                         type="text" 
                         className="search-bar-input"
                         onChange={this.handleChange}
                         placeholder = "Search..."
-                    />
+                        />
+                    </div>
                     <ul className="restaurant-search-list">
-                        <i className='fas fa-building'></i>Restaurants
+                        <div className="restaurant-search-list-header">
+                            <i className='fas fa-building'></i>
+                            RESTAURANTS
+                        </div>
                         {this.state.list.map(restaurant => (
                             <li 
                                 className="restaurant-search-list-li"
@@ -77,7 +82,6 @@ class RestaurantSearchList extends Component {
                                 <Link to={`/restaurants/${restaurant.id}`}>
                                     <div>{restaurant.name}</div>
                                     <div>{restaurant.neighborhood}</div>
-                                    {/* {restaurant.name} : {restaurant.style} : {restaurant.address} */}
                                 </Link>
                             </li>
                         ))}
