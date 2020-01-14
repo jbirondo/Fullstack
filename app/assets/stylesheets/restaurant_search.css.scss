@@ -5,16 +5,17 @@
     color: grey;
     font-size: 1rem;
     list-style: none;
-    width: 243.05px;
+    width: 240.05px;
     padding-left: 0%;
     padding-bottom: 2%;
-    margin-top: -3%;
+    margin-top: -24px;
     border-radius: 0px 0px 4px 4px;;
     -webkit-background-clip: padding-box; 
     -moz-background-clip:    padding; 
     background-clip:         padding-box;
     border-left-color: gray;
-    margin-left: 1px ;
+    border: 1px grey;
+    margin-right: 0px;
 }
 
 .search-bar-input {
@@ -31,6 +32,7 @@
     -webkit-background-clip: padding-box; 
     -moz-background-clip:    padding; 
     background-clip:         padding-box;
+    border: 1px darkgray
 }
 
 .search-bar-input:focus {
@@ -39,6 +41,8 @@
 
 .restaurant-search-list-li {
     padding-left: 15%;
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
 
 .restaurant-search-list-li:nth-of-type(1n+6) {
@@ -53,4 +57,8 @@
 .restaurant-search-list-header {
     padding-top: 1%;
     padding-bottom: 1%;
+}
+
+.search-bar-input-container {
+    margin-top: 3%;
 }

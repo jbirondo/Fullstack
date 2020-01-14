@@ -50,7 +50,7 @@ class RestaurantSearchList extends Component {
     render() {
         if (this.state.list === undefined) {
             return (
-                <div>
+                <div className="search-bar-input-container">
                     <input 
                         type="text"
                         className="search-bar-input"
@@ -62,13 +62,13 @@ class RestaurantSearchList extends Component {
         } else {
             return (
                 <div>
-                    <div>
-                    <input 
-                        type="text" 
-                        className="search-bar-input"
-                        onChange={this.handleChange}
-                        placeholder = "Search..."
-                        />
+                    <div className="search-bar-input-container">
+                        <input 
+                            type="text" 
+                            className="search-bar-input"
+                            onChange={this.handleChange}
+                            placeholder = "Search..."
+                            />
                     </div>
                     <ul className="restaurant-search-list">
                         <div className="restaurant-search-list-header">
