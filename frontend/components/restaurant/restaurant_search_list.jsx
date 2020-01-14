@@ -69,7 +69,7 @@ class RestaurantSearchList extends Component {
                         placeholder = "Search..."
                     />
                     <ul className="restaurant-search-list">
-                        Restaurants
+                        <i className='fas fa-building'></i>Restaurants
                         {this.state.list.map(restaurant => (
                             <li 
                                 className="restaurant-search-list-li"
