@@ -5,7 +5,10 @@
     color: grey;
     font-size: 1rem;
     list-style: none;
-    width: 150px;
+    width: 244.1px;
+    padding-left: 0%;
+    padding-bottom: 2%;
+    margin-top: -3%;
 }
 
 .search-bar-input {
@@ -16,7 +19,16 @@
     padding: .5rem 0 .5rem 2.5rem;
     height: 100%;
     font-weight: 400;
+    width: 200px;
     line-height: 1.43;
+}
+
+.restaurant-search-list-li {
+    padding-left: 15%;
+}
+
+.restaurant-search-list-li:nth-of-type(1n+6) {
+    display: none;
 }
 
 .restaurant-search-list-li:hover {
