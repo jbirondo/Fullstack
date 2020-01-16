@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
+// import ReactSearchBox from "react-search-box";
+
 class RestaurantSearchList extends Component {
     constructor(props) {
         super(props)
@@ -11,13 +13,13 @@ class RestaurantSearchList extends Component {
 
     componentDidMount() {
         this.setState({
-            list: this.props.items
+            list: this.props.restaurants
         })
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentDidUpdate(nextProps) {
         this.setState({
-            list: nextProps.items
+            list: nextProps.restaurants
         })
     }
 
@@ -36,11 +38,11 @@ class RestaurantSearchList extends Component {
         } else {
             newList = restaurantArray;
         }
-        if (e.target.value === "") {
-            this.setState({
-                list: undefined
-            })
-        }
+        // if (e.target.value === "") {
+        //     this.setState({
+        //         list: undefined
+        //     })
+        // }
         this.setState({
             list: newList
         });
@@ -48,7 +50,8 @@ class RestaurantSearchList extends Component {
     }
 
     render() {
-        if (this.state.list === undefined) {
+        debugger
+        if (this.state.list.length === 0) {
             return (
                 <div className="search-bar-input-container">
                     <input 
@@ -67,9 +70,10 @@ class RestaurantSearchList extends Component {
                             type="text" 
                             className="search-bar-input"
                             onChange={this.handleChange}
-                            placeholder = "Search..."
+                            placeholder="Search..."
                             />
                     </div>
+                
                     <ul className="restaurant-search-list">
                         <div className="restaurant-search-list-header">
                             <i className='fas fa-building'></i>
