@@ -9,19 +9,20 @@ class RestaurantSearchList extends Component {
             list: []
         }
         this.handleChange = this.handleChange.bind(this)
+        debugger
     }
 
-    componentDidMount() {
-        this.setState({
-            list: this.props.restaurants
-        })
-    }
+    // componentDidMount() {
+    //     this.setState({
+    //       list: Object.values(this.props.restaurants)
+    //     });
+    // }
 
-    componentDidUpdate(nextProps) {
-        this.setState({
-            list: nextProps.restaurants
-        })
-    }
+    // componentDidUpdate(nextProps) {
+    //     this.setState({
+    //         list: nextProps.restaurants
+    //     })
+    // }
 
     handleChange(e) {
         let currentList = [];
@@ -50,19 +51,19 @@ class RestaurantSearchList extends Component {
     }
 
     render() {
-        debugger
-        if (this.state.list.length === 0 || this.state.list === undefined ) {
-            return (
-                <div className="search-bar-input-container">
-                    <input 
-                        type="text"
-                        className="search-bar-input"
-                        onChange={this.handleChange}
-                        placeholder="Search..."
-                    />
-                </div>
-            )
-        } else {
+        if (this.state.list.length === 0 || this.state.list.length === undefined ) return null 
+            // return (
+            //     <div className="search-bar-input-container">
+            //         <input 
+            //             type="text"
+            //             className="search-bar-input"
+            //             onChange={this.handleChange}
+            //             placeholder="Search..."
+            //         />
+            //     </div>
+            // )
+        else {
+            debugger
             return (
                 <div>
                     <div className="search-bar-input-container">
