@@ -7,7 +7,6 @@ class RestaurantSearchList extends Component {
       list: []
     };
     this.handleChange = this.handleChange.bind(this);
-    debugger
   }
 
   componentDidMount() {
@@ -61,7 +60,6 @@ class RestaurantSearchList extends Component {
         </div>
       );
     } else {
-        debugger
       return (
         <div>
           <div className="search-bar-input-container">
