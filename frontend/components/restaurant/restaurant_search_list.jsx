@@ -51,7 +51,7 @@ class RestaurantSearchList extends Component {
 
     render() {
         debugger
-        if (this.state.list.length === 0) {
+        if (this.state.list.length === 0 || this.state.list === undefined ) {
             return (
                 <div className="search-bar-input-container">
                     <input 
