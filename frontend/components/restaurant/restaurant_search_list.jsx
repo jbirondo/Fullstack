@@ -13,13 +13,14 @@ class RestaurantSearchList extends Component {
     this.setState({
       list: Object.values(this.props.restaurants)
     });
-    debugger
+    console.log(this.state.list, "conponentDidMount")
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       list: nextProps.items
     });
+    console.log(this.state.list, "conponentWillReceiveProps");
   }
 
   handleChange(e) {
@@ -45,11 +46,12 @@ class RestaurantSearchList extends Component {
     this.setState({
       list: newList
     });
-    // debugger
+    console.log(this.state.list, "handleChange");
   }
 
   render() {
     if (this.state.list === undefined) {
+      console.log(this.state.list, "if render");
       return (
         <div className="search-bar-input-container">
           <input
@@ -60,7 +62,9 @@ class RestaurantSearchList extends Component {
           />
         </div>
       );
+      
     } else {
+      console.log(this.state.list, "else render");
       return (
         <div>
           <div className="search-bar-input-container">
