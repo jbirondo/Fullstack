@@ -11,7 +11,7 @@ class RestaurantSearchList extends Component {
 
   componentDidMount() {
     this.setState({
-      list: this.props.items
+      list: Object.values(this.props.restaurants)
     });
   }
 
