@@ -13,6 +13,7 @@ class RestaurantSearchList extends Component {
     this.setState({
       list: Object.values(this.props.restaurants)
     });
+    debugger
   }
 
   componentWillReceiveProps(nextProps) {
@@ -36,11 +37,11 @@ class RestaurantSearchList extends Component {
     } else {
       newList = restaurantArray;
     }
-    if (e.target.value === "") {
-      this.setState({
-        list: undefined
-      });
-    }
+    // if (e.target.value === "") {
+    //   this.setState({
+    //     list: undefined
+    //   });
+    // }
     this.setState({
       list: newList
     });
