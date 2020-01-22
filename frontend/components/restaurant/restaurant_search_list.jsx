@@ -36,15 +36,9 @@ class RestaurantSearchList extends Component {
         const filter = e.target.value.toLowerCase();
         return lc.includes(filter);
       });
-      // debugger
     } else {
       newList = restaurantArray;
     }
-    // if (e.target.value === "") {
-    //   this.setState({
-    //     list: undefined
-    //   });
-    // }
     this.setState({
       list: newList
     });
@@ -52,25 +46,7 @@ class RestaurantSearchList extends Component {
   }
 
   render() {
-    // if (this.state.list === undefined) {
-    //   console.log(this.state.list, "if render");
-    //   console.log(this.props.restaurants, "if render");
-    //   return (
-    //     <div className="search-bar-input-container">
-    //       <input
-    //         type="text"
-    //         className="search-bar-input"
-    //         onChange={this.handleChange}
-    //         placeholder="Search..."
-    //       />
-    //     </div>
-    //   );
-
-    // } else {
       let restaurants = this.state.list
-    //   if (restaurants === {}) {
-    //       restaurants = []
-    //   }
       console.log(this.state.list, "else render");
       console.log(this.props.restaurants, "else render");
       return (
@@ -100,7 +76,6 @@ class RestaurantSearchList extends Component {
         </div>
       );
     }
-//   }
 }
 
 export default RestaurantSearchList;
