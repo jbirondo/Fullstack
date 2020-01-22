@@ -9,11 +9,12 @@ class RestaurantSearchList extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.setState({
       list: Object.values(this.props.restaurants)
     });
     console.log(this.state.list, "conponentDidMount")
+    console.log(this.props.restaurants, "conponentDidMount")
   }
 
   componentWillReceiveProps(nextProps) {
@@ -21,6 +22,7 @@ class RestaurantSearchList extends Component {
       list: nextProps.items
     });
     console.log(this.state.list, "conponentWillReceiveProps");
+    console.log(this.props.restaurants, "componentWillReceiveProps");
   }
 
   handleChange(e) {
@@ -50,21 +52,27 @@ class RestaurantSearchList extends Component {
   }
 
   render() {
-    if (this.state.list === undefined) {
-      console.log(this.state.list, "if render");
-      return (
-        <div className="search-bar-input-container">
-          <input
-            type="text"
-            className="search-bar-input"
-            onChange={this.handleChange}
-            placeholder="Search..."
-          />
-        </div>
-      );
-      
-    } else {
+    // if (this.state.list === undefined) {
+    //   console.log(this.state.list, "if render");
+    //   console.log(this.props.restaurants, "if render");
+    //   return (
+    //     <div className="search-bar-input-container">
+    //       <input
+    //         type="text"
+    //         className="search-bar-input"
+    //         onChange={this.handleChange}
+    //         placeholder="Search..."
+    //       />
+    //     </div>
+    //   );
+
+    // } else {
+      let restaurants = this.state.list
+    //   if (restaurants === {}) {
+    //       restaurants = []
+    //   }
       console.log(this.state.list, "else render");
+      console.log(this.props.restaurants, "else render");
       return (
         <div>
           <div className="search-bar-input-container">
@@ -80,19 +88,19 @@ class RestaurantSearchList extends Component {
               <i className="fas fa-building"></i>
               RESTAURANTS
             </div>
-            {this.state.list.map(restaurant => (
+            {restaurants !== undefined ? restaurants.map(restaurant => (
               <li className="restaurant-search-list-li" key={restaurant.id}>
                 <Link to={`/restaurants/${restaurant.id}`}>
                   <div>{restaurant.name}</div>
                   <div>{restaurant.neighborhood}</div>
                 </Link>
               </li>
-            ))}
+            )): null }
           </ul>
         </div>
       );
     }
-  }
+//   }
 }
 
 export default RestaurantSearchList;
