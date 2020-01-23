@@ -11,18 +11,14 @@ class RestaurantSearchList extends Component {
 
   componentWillMount() {
     this.setState({
-      list: Object.values(this.props.restaurants)
+      list: []
     });
-    console.log(this.state.list, "conponentDidMount")
-    console.log(this.props.restaurants, "conponentDidMount")
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       list: nextProps.items
     });
-    console.log(this.state.list, "conponentWillReceiveProps");
-    console.log(this.props.restaurants, "componentWillReceiveProps");
   }
 
   handleChange(e) {
@@ -42,13 +38,10 @@ class RestaurantSearchList extends Component {
     this.setState({
       list: newList
     });
-    console.log(this.state.list, "handleChange");
   }
 
   render() {
       let restaurants = this.state.list
-      console.log(this.state.list, "else render");
-      console.log(this.props.restaurants, "else render");
       return (
         <div>
           <div className="search-bar-input-container">
@@ -60,10 +53,13 @@ class RestaurantSearchList extends Component {
             />
           </div>
           <ul className="restaurant-search-list">
+            {restaurants !== undefined ?  
             <div className="restaurant-search-list-header">
               <i className="fas fa-building"></i>
               RESTAURANTS
             </div>
+            : null
+            }
             {restaurants !== undefined ? restaurants.map(restaurant => (
               <li className="restaurant-search-list-li" key={restaurant.id}>
                 <Link to={`/restaurants/${restaurant.id}`}>
