@@ -33,23 +33,14 @@
 
 .header-link {
     text-decoration: none;
-    float: left;
-    // background-image: url(https://media.otstatic.com/img/logo-fb47603a815bb1cf3e89400ba14587f1.png);
     background-image: url("./logo.png");
-    // background-image: require("./logo.png");
     color: rgba(0,0,0,0);
     display: inline-block;
     background-repeat: no-repeat;
-    // width: 14.65rem;
-    // height: 2.30rem;
-    // width: 446px;
-    // height: 182px;
     background-size: 100% 100%;
-    // margin-right: 24%;
 }
 
 .nav-bar-welcome-message {
-    float: right;
     width: auto;
     height: auto;
     font-family: sans-serif;
@@ -73,7 +64,6 @@
 }
 
 .clearfix:after {
-    // content: "";
     display: block;
     clear: both;
 }

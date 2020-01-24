@@ -1,5 +1,4 @@
 .user-dropdown-button {
-    float: right;
     border: none;
     display: inline-block;
     background: transparent;
@@ -15,7 +14,6 @@
 .user-dropdown-menu {
     display: block;
     list-style-type: none;
-    // border: 1px light grey;
     position: relative;
     right: 31px;
     z-index: 3;
