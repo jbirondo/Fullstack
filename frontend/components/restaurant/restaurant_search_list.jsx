@@ -35,7 +35,9 @@ class RestaurantSearchList extends Component {
     } else {
       newList = restaurantArray;
     }
-    
+    if (e.target.value === "") {
+        newList = []
+    }
     this.setState({
       list: newList
     });
