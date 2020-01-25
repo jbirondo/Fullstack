@@ -46,12 +46,20 @@ class RestaurantSearchList extends Component {
   }
 
   boldSearchWord(restaurantName, searchString){
-    let first = restaurantName.indexOf(searchString)
-    return [first + 1, first + searchString.length]
+    debugger
+    let first = restaurantName.toLowerCase().indexOf(searchString.toLowerCase())
+    if (first !== undefined) {
+    return (
+      <div>
+        <div>{restaurantName.slice(0, first)}</div>
+        <div font-weight="bold">{restaurantName.slice(first, first + searchString.length)}</div>
+        <div>{restaurantName.slice(first + searchString.length)}</div>
+      </div>
+    )
+    } 
   }
 
   render() {
-      debugger
       let restaurants = this.state.list
       return (
         <div>
@@ -72,8 +80,9 @@ class RestaurantSearchList extends Component {
             {restaurants.map(restaurant => (
               <li className="restaurant-search-list-li" key={restaurant.id}>
                 <Link to={`/restaurants/${restaurant.id}`}>
-                  {console.log(this.boldSearchWord(restaurant.name, this.state.searchWord), restaurant.name)}
-                  <div>{restaurant.name}</div>
+                  {/* {console.log(this.boldSearchWord(restaurant.name, this.state.searchWord), restaurant.name)} */}
+                  {/* <div>{restaurant.name}</div> */}
+                  {this.boldSearchWord(restaurant.name, this.state.searchString)}
                   <div>{restaurant.neighborhood}</div>
                 </Link>
               </li>
