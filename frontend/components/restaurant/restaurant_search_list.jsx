@@ -4,7 +4,8 @@ class RestaurantSearchList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: []
+      list: [],
+      searchWord: ""
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -39,11 +40,18 @@ class RestaurantSearchList extends Component {
         newList = []
     }
     this.setState({
+      searchWord: e.target.value,
       list: newList
     });
   }
 
+  boldSearchWord(restaurantName, searchString){
+    let first = restaurantName.indexOf(searchString)
+    return [first + 1, first + searchString.length]
+  }
+
   render() {
+      debugger
       let restaurants = this.state.list
       return (
         <div>
@@ -64,6 +72,7 @@ class RestaurantSearchList extends Component {
             {restaurants.map(restaurant => (
               <li className="restaurant-search-list-li" key={restaurant.id}>
                 <Link to={`/restaurants/${restaurant.id}`}>
+                  {console.log(this.boldSearchWord(restaurant.name, this.state.searchWord), restaurant.name)}
                   <div>{restaurant.name}</div>
                   <div>{restaurant.neighborhood}</div>
                 </Link>
