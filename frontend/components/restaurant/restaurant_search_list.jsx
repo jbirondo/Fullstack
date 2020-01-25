@@ -9,17 +9,17 @@ class RestaurantSearchList extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillMount() {
-    this.setState({
-      list: []
-    });
-  }
+//   componentWillMount() {
+//     this.setState({
+//       list: []
+//     });
+//   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      list: nextProps.items
-    });
-  }
+//   componentDidUpdate(nextProps) {
+//     this.setState({
+//       list: nextProps.items
+//     });
+//   }
 
   handleChange(e) {
     let currentList = [];
@@ -35,6 +35,7 @@ class RestaurantSearchList extends Component {
     } else {
       newList = restaurantArray;
     }
+    
     this.setState({
       list: newList
     });
@@ -52,23 +53,23 @@ class RestaurantSearchList extends Component {
               placeholder="Search..."
             />
           </div>
-          <ul className="restaurant-search-list">
-            {restaurants !== undefined ?  
+            {restaurants.length > 0 ? 
+            <ul className="restaurant-search-list">
             <div className="restaurant-search-list-header">
               <i className="fas fa-building"></i>
               RESTAURANTS
             </div>
-            : null
-            }
-            {restaurants !== undefined ? restaurants.map(restaurant => (
+            {restaurants.map(restaurant => (
               <li className="restaurant-search-list-li" key={restaurant.id}>
                 <Link to={`/restaurants/${restaurant.id}`}>
                   <div>{restaurant.name}</div>
                   <div>{restaurant.neighborhood}</div>
                 </Link>
               </li>
-            )): null }
+            ))}
           </ul>
+            :
+             null }
         </div>
       );
     }
