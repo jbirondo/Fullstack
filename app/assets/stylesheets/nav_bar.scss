@@ -15,11 +15,19 @@
     color: white;
     background-color: #237B98;
     font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
+
+.nav-sign-up-button:hover {
+    filter: brightness(90%);
+}
+
 .nav-sign-in-button {
     background-color: transparent;
     font-size: 16px;
     border: none;
+
 }
 
 .nav-sign-up-button , .nav-sign-in-button {
