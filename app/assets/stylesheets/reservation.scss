@@ -9,6 +9,12 @@
     font-size: 14px;
     margin-bottom: 5%;
     margin-top: 5%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.log-in-to-reserve:hover {
+    filter: brightness(90%);
 }
 
 .main-reservation {
