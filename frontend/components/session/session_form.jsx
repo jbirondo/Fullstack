@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
 
     render() {
         let path = "login"
-        let title = "Welcome to OpenTable!";
+        let title = "Welcome to TableOpen!";
         let altTitle = "Have an account? Log in here"
         let button = "Create Account"
         if (this.props.formType === "login") {

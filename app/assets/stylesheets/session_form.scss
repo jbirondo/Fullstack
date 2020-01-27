@@ -17,7 +17,7 @@
   height: 80%;
   width: 40%;
   padding: 15px;
-  border-radius: 8px;
+  // border-radius: 8px;
 }
 
 .sign-in-button, .alt-sign-in-button, .demo-sign-in-button {
@@ -45,6 +45,8 @@
   color: white;
   background-color: #237B98;
   margin-top: 13px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 
 .sign-in-button {
@@ -53,6 +55,12 @@
   color: white;
   background-color: red;
   margin-top: 26px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.demo-sign-in-button:hover, .sign-in-button:hover {
+  filter: brightness(90%);
 }
 
 .alt-sign-in-button{
