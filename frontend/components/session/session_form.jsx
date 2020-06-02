@@ -65,7 +65,7 @@ class SessionForm extends React.Component {
                     <input className="sign-in-input" type="password" onChange={this.handleInput('password')} value={this.state.password} />
                 </label>
                 <br/>
-                <button className="sign-in-button" onClick={this.handleSubmit}>{button}</button>
+                <button className="sign-in-button" onSubmit={this.handleSubmit}>{button}</button>
                 <button className="demo-sign-in-button" onClick={this.demoUser}>Demo Login</button>
                 <button className="alt-sign-in-button" onClick={() => this.props.openModal(path)}>{altTitle}</button>
             </div>
