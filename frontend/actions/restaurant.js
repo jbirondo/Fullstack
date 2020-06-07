@@ -5,7 +5,6 @@ export const RECEIVE_RESTAURANTS = "RECEIVE_RESTAURANTS"
 
 export const receiveRestaurants = restaurants =>
 {
-    // debugger
     return ({type: RECEIVE_RESTAURANTS,
     restaurants})
 }
