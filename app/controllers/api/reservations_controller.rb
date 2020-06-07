@@ -16,7 +16,6 @@ class Api::ReservationsController < ApplicationController
             render json: @reservation, status: :unprocessable_entity
         end
         # else 
-        #     debugger
         #     render json: ["Reservations full for this date, please select another date"], status: :unprocessable_entity
         # end
     end
