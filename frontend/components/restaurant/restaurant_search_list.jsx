@@ -79,9 +79,7 @@ class RestaurantSearchList extends Component {
             {restaurants.map(restaurant => (
               <li className="restaurant-search-list-li" key={restaurant.id}>
                 <Link to={`/restaurants/${restaurant.id}`}>
-                  {/* {console.log(this.boldSearchWord(restaurant.name, this.state.searchWord), restaurant.name)} */}
                   <div>{restaurant.name}</div>
-                  {/* {this.boldSearchWord(restaurant.name, this.state.searchString)} */}
                   <div>{restaurant.neighborhood}</div>
                 </Link>
               </li>
