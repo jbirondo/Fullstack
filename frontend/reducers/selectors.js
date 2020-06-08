@@ -1,6 +1,5 @@
 export const selectRestaurant = ({ restaurant }, id) => {
   if (restaurant[id]) {
-    // debugger
     const restaurant = restaurants[id];
     return restaurant;
   }
