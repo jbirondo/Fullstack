@@ -69,8 +69,6 @@ class RestaurantShow extends React.Component {
   }
 
   render() {
-    // console.log(this.props.restaurant);
-    // console.log(this.props.user.reservations);
     if (!this.props.restaurant) {
       return <div className="restaurant-show-loading">Loading...</div>;
     }
