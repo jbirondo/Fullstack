@@ -25,13 +25,11 @@ class RestaurantShow extends React.Component {
     reviewsArr.forEach(review => {
       counter = counter + review.rating;
     });
-    // debugger
     return Math.floor(counter / reviewsArr.length);
   }
 
   reservationCheck() {
     for (let i = 0; i < this.props.user.reservations.length; i++){
-      // debugger
       if (this.props.user.reservations[i].restaurant.id == this.props.restaurantId){
         return this.props.user.reservations[i]
       }
@@ -76,7 +74,6 @@ class RestaurantShow extends React.Component {
     if (!this.props.restaurant) {
       return <div className="restaurant-show-loading">Loading...</div>;
     }
-    // debugger
     let reviews;
     if (this.props.restaurant.reviews) {
       reviews = this.props.restaurant.reviews.map(review => (
