@@ -46,7 +46,6 @@ class RestaurantSearchList extends Component {
   }
 
   boldSearchWord(restaurantName, searchString){
-    // debugger
     let first = restaurantName.toLowerCase().indexOf(searchString.toLowerCase())
     if (first !== undefined) {
     return (
