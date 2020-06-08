@@ -23,7 +23,6 @@ class RestaurantIndexList extends React.Component {
         reviewsArr.forEach(review => {
             counter = counter + review.rating
         })
-        // debugger
         return Math.floor(counter / reviewsArr.length)
     }
 
